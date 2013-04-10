@@ -1,0 +1,31 @@
+model commands
+
+
+rails g model path name:string description:string
+
+rails g model step description:string
+
+rails g model QuestStep quest:references step:references
+
+
+rails g model Quest name:string description:string  reward:integer
+
+rails g model QuestPath quest:references path:references
+
+rails g model UserQuest quest:references user:references complete:boolean
+
+rails g model User email:string username:string
+
+rails g scaffold Goal action:string quantity:decimal unit:string frequency:decimal frequency_unit:string start:date end:date goal_log:references
+
+rails g model UserGoal goal:references user:references complete:boolean
+
+rails g model GoalLog goal:references log:references
+
+rails g scaffold Log log_date:date quantity:decimal description:string
+
+rails g model GoalGrade goal:references grade:references
+
+rails g scaffold Grade percent:decimal name:string
+
+rails g model GoalPath quest:references path:references

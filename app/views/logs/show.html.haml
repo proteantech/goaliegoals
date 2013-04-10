@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Log date:
+  = @log.log_date
+%p
+  %b Quantity:
+  = @log.quantity
+%p
+  %b Description:
+  = @log.description
+
+= link_to 'Edit', edit_log_path(@log)
+\|
+= link_to 'Back', logs_path
