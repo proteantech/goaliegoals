@@ -11,7 +11,8 @@
   %body{:class => "#{controller_name} #{action_name}"}
     .navbar.navbar-fixed-top
       %nav.navbar-inner
-        = image_tag 'soccerball.png', size: '32x32', style: 'float: left; padding: 0; padding: 0px 10px 0px'
+        = link_to root_path do
+          = image_tag 'soccerball.png', size: '32x32', style: 'float: left; padding: 0; padding-top: 5px; padding-left: 5px;'
         .container
           = render 'layouts/navigation'
     #main{:role => "main"}
