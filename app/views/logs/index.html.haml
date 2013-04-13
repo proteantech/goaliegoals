@@ -1,21 +1,22 @@
-%h1 Listing Logs
+%h1.text-center{style: 'padding-bottom: 10px;'} Listing Logs
 
-%table{class: 'table table-striped'}
+%table{class: 'table table-condensed table-striped'}
   %tr
     %th Log Date
     %th Quantity
     %th Description
-    %th{colspan:3} Actions
+    %th Actions
 
   - @logs.each do |log|
     %tr
       %td= log.log_date
       %td= log.quantity
       %td= log.description
-      %td= link_to 'Show', log, class: 'btn btn-inverse '
-      %td= link_to 'Edit', edit_log_path(log), class: 'btn btn-inverse'
-      %td= link_to 'Destroy', log, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-inverse'
+      %td
+        = link_to 'Show', log, class: 'btn btn-mini btn-inverse '
+        = link_to 'Edit', edit_log_path(log), class: 'btn btn-mini btn-inverse'
+        = link_to 'Destroy', log, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-mini btn-inverse'
 
 %br
-
-= link_to 'New Log', new_log_path, class: 'btn btn-primary'
+.text-center
+  = link_to 'New Log', new_log_path, class: 'btn btn-primary'

@@ -1,15 +1,37 @@
 %p#notice= notice
 
-%p
-  %b Log date:
-  = @log.log_date
-%p
-  %b Quantity:
-  = @log.quantity
-%p
-  %b Description:
-  = @log.description
+.row
+  .offset1
+    %h1 Viewing Log
+.row
+  .span6
+    %hr.dashed{style:'display: block'}
 
-= link_to 'Edit', edit_log_path(@log)
-\|
-= link_to 'Back', logs_path
+%p
+  .row
+    .span2{style: 'text-align: right;'}
+      %b Log date:
+    .span4
+      = @log.log_date
+%p
+  .row
+    .span2{style: 'text-align: right;'}
+      %b Quantity:
+    .span4
+      = @log.quantity
+%p
+  .row
+    .span2{style: 'text-align: right;'}
+      %b Description:
+    .span4
+      = @log.description
+
+.row
+  .span6
+    %hr.dashed{style:'display: block'}
+
+%p
+  .row
+    .offset2
+      = link_to 'Edit', edit_log_path(@log), class: 'btn btn-primary'
+      -#= link_to 'Back', logs_path, class: 'btn'
