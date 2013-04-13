@@ -12,6 +12,11 @@
  *= require_tree .
 */
 
+.body_aligned {
+  margin-left: -20px; /* negative indent the amount of the padding to maintain the grid system */
+  margin-right: -20px;
+}
+
 .content {
   background-color: #eee;
   padding: 20px;
@@ -22,4 +27,11 @@
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
   box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
+/* Double-color dashed line */
+hr.dashed {
+  border: 0;
+  border-bottom: 1px dashed #ccc;
+  background: #999;
 }
