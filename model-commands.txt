@@ -16,7 +16,7 @@ rails g model UserQuest quest:references user:references complete:boolean
 
 rails g model User email:string username:string
 
-rails g scaffold Goal action:string quantity:decimal unit:string frequency:decimal frequency_unit:string start:date end:date goal_log:references
+rails g scaffold Goal action:string quantity:decimal unit:string frequency:decimal frequency_unit:string start:date end:date logs:has_many
 
 rails g model UserGoal goal:references user:references complete:boolean
 

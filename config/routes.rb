@@ -1,4 +1,7 @@
 Goalie::Application.routes.draw do
+  resources :goals
+
+
   resources :logs
 
 
