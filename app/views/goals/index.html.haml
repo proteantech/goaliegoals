@@ -1,0 +1,30 @@
+%h1.index_header Listing Goals
+
+%table{class: 'table table-condensed table-striped'}
+  %tr
+    %th Action
+    %th Quantity
+    %th Unit
+    %th Frequency
+    %th Frequency unit
+    %th Start
+    %th End
+    %th Actions
+
+  - @goals.each do |goal|
+    %tr
+      %td= goal.action
+      %td= goal.quantity
+      %td= goal.unit
+      %td= goal.frequency
+      %td= goal.frequency_unit
+      %td= goal.start
+      %td= goal.end
+      %td
+        = link_to 'View', goal, class: 'btn btn-mini btn-inverse '
+        = link_to 'Edit', edit_goal_path(goal), class: 'btn btn-mini btn-inverse'
+        = link_to 'Delete', goal, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-mini btn-inverse'
+
+%br
+.text-center
+  = link_to 'New Goal', new_goal_path, class: 'btn btn-primary'

@@ -1,0 +1,25 @@
+%p
+  %b Action:
+  = @goal.action
+%p
+  %b Quantity:
+  = @goal.quantity
+%p
+  %b Unit:
+  = @goal.unit
+%p
+  %b Frequency:
+  = @goal.frequency
+%p
+  %b Frequency unit:
+  = @goal.frequency_unit
+%p
+  %b Start:
+  = @goal.start
+%p
+  %b End:
+  = @goal.end
+
+= link_to 'Edit', edit_goal_path(@goal)
+\|
+= link_to 'Back', goals_path
