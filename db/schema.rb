@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130414030620) do
+ActiveRecord::Schema.define(:version => 20130414000225) do
 
   create_table "goals", :force => true do |t|
     t.string   "action"
@@ -25,8 +25,14 @@ ActiveRecord::Schema.define(:version => 20130414030620) do
     t.datetime "updated_at",     :null => false
   end
 
-# Could not dump table "logs" because of following StandardError
-#   Unknown type 'belongs_to' for column 'goal'
+  create_table "logs", :force => true do |t|
+    t.date     "log_date"
+    t.decimal  "quantity"
+    t.string   "description"
+    t.integer  "goal_id",     :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

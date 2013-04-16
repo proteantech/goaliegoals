@@ -4,7 +4,7 @@ class CreateLogs < ActiveRecord::Migration
       t.date :log_date
       t.decimal :quantity
       t.string :description
-
+      t.references :goal, null: false
       t.timestamps
     end
   end

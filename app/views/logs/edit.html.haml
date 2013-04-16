@@ -2,6 +2,6 @@
 
 = render 'form'
 
-= link_to 'Show', @log
+= link_to 'Show', [@goal, @log]
 \|
-= link_to 'Back', logs_path
+= link_to 'View All', goal_logs_path(@goal)

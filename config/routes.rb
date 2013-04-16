@@ -1,9 +1,7 @@
 Goalie::Application.routes.draw do
-  resources :goals
-
-
-  resources :logs
-
+  resources :goals do
+    resources :logs
+  end
 
   authenticated :user do
     root :to => 'home#index'

@@ -21,6 +21,7 @@
       %td= goal.start
       %td= goal.end
       %td
+        = link_to 'Logs', goal_logs_url(goal), class: 'btn btn-mini btn-inverse '
         = link_to 'View', goal, class: 'btn btn-mini btn-inverse '
         = link_to 'Edit', edit_goal_path(goal), class: 'btn btn-mini btn-inverse'
         = link_to 'Delete', goal, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-mini btn-inverse'
