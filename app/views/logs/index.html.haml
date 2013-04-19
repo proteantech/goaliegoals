@@ -1,5 +1,12 @@
 %h1.index_header Listing Logs
 
+- if @goal.on_target
+  .alert.alert-success.text-center
+    On Target to Achieve Goal
+- else
+  .alert.alert-error.text-center
+    Failing to Achieve Goal
+
 %table{class: 'table table-condensed table-striped'}
   %tr
     %th Log Date

@@ -4,8 +4,10 @@ one:
   log_date: 2013-04-09
   quantity: 9.99
   description: MyString
+  goal_id: 1
 
 two:
   log_date: 2013-04-09
   quantity: 9.99
   description: MyString
+  goal_id: 1

@@ -1,19 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  action: MyString
-  quantity: 9.99
-  unit: MyString
-  frequency: 9.99
-  frequency_unit: MyString
-  start: 2013-04-13
-  end: 2013-04-13
+books_2_per_month:
+  action: read
+  quantity: 2
+  unit: books
+  frequency: 2
+  frequency_unit: Month
+  start: 2013-04-1
+  end: 2013-05-31
 
-two:
-  action: MyString
-  quantity: 9.99
-  unit: MyString
-  frequency: 9.99
-  frequency_unit: MyString
-  start: 2013-04-13
-  end: 2013-04-13
+books_2_per_day:
+  action: read
+  quantity: 2
+  unit: books
+  frequency: 1
+  frequency_unit: Day
+  start: 2013-04-1
+  end: 2013-05-31

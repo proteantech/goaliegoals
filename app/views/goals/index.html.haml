@@ -9,6 +9,7 @@
     %th Frequency unit
     %th Start
     %th End
+    %th Status
     %th Actions
 
   - @goals.each do |goal|
@@ -20,6 +21,11 @@
       %td= goal.frequency_unit
       %td= goal.start
       %td= goal.end
+      %td
+        - if goal.on_target
+          %span.label.label-success Passing
+        - else
+          %span.label.label-success Failing
       %td
         = link_to 'Logs', goal_logs_url(goal), class: 'btn btn-mini btn-inverse '
         = link_to 'View', goal, class: 'btn btn-mini btn-inverse '

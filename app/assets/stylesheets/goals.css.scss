@@ -24,3 +24,17 @@
     width: 75px !important;
   }
 }
+
+.target {
+  border: 2px;
+  border-color: black;
+  border-style: ridge;
+
+}
+
+.pass {
+  background-color: red;
+}
+.fail {
+  background-color: green;
+}

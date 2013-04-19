@@ -1,3 +1,4 @@
+require_relative '../../lib/goalie/date_util'
 class LogsController < ApplicationController
 
   before_filter :setup_goal
@@ -13,7 +14,6 @@ class LogsController < ApplicationController
   # GET /logs.json
   def index
     @logs = @goal.logs
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @logs }
@@ -32,6 +32,12 @@ class LogsController < ApplicationController
   end
 
   # GET /logs/new
+
+  # GET /logs/1/edit
+  def edit
+    @log = Log.find(params[:id])
+  end
+
   # GET /logs/new.json
   def new
     @log = Log.new
@@ -42,12 +48,6 @@ class LogsController < ApplicationController
       format.json { render json: @log }
     end
   end
-
-  # GET /logs/1/edit
-  def edit
-    @log = Log.find(params[:id])
-  end
-
   # POST /logs
   # POST /logs.json
   def create
