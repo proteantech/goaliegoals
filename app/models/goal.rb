@@ -30,7 +30,7 @@ class Goal < ActiveRecord::Base
   end
 
   def on_target
-    log_sum > per_diem
+    log_sum > daily_target
   end
 
   def todays_percentage_of_time_completed

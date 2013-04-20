@@ -17,13 +17,33 @@
 -#  %span{style: "position: absolute; left: #{@goal.todays_percentage_of_time_completed}%"} #{@goal.todays_minimum.round(2)}
 
 
-.progress
-  .bar.bar-danger{style:"width: #{@goal.todays_percentage_of_time_completed}%;"}
-  .bar.bar-success{style:"width: #{@goal.percentage_completed_above_minimum}%;"}
+.row
+  .span3{style: 'text-align: right;'}
+    %b Total Completed:
+  .span4
+    %span.label.label-success #{@goal.log_sum}
 
 .row
-  %span.span1 0 #{@goal.unit}
-  %span.span1.offset10.text-right #{@goal.pass_minimum.round(0)}
+  .span3{style: 'text-align: right;'}
+    %b Minimum Needed to Stay On Track:
+  .span4
+    %span.label.label-important #{@goal.todays_minimum.round(2)}
+
+%br
+
+- if @goal.percentage_completed_above_minimum > 0
+  .progress
+    .bar.bar-danger{style:"width: #{@goal.todays_percentage_of_time_completed}%;"}
+    .bar.bar-success{style:"width: #{@goal.percentage_completed_above_minimum}%;"}
+- else
+  .progress
+    .bar.bar-success{style:"width: #{@goal.percentage_completed}%;"}
+    .bar.bar-danger{style:"width: #{@goal.todays_percentage_of_time_completed - @goal.percentage_completed}%;"}
+.row
+  %span.span1 0
+  %span.span2.offset4.text-center #{@goal.unit} #{@goal.action}
+  %span.span1.offset4.text-right
+    = "%g" % @goal.pass_minimum.round(2)
 
 %br
 %br
