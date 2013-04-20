@@ -9,12 +9,20 @@
     Failing to Achieve Goal:
     %span{style: 'color: black'} #{@goal.to_s}
 
+-#.row
+-#  .span1
+-#    %span.badge.badge-important{style: "position: absolute; left: #{@goal.todays_percentage_of_time_completed}%"} #{@goal.todays_minimum.round(2)}
+
+-#.blah{style:"position:relative;"}
+-#  %span{style: "position: absolute; left: #{@goal.todays_percentage_of_time_completed}%"} #{@goal.todays_minimum.round(2)}
+
+
 .progress
   .bar.bar-danger{style:"width: #{@goal.todays_percentage_of_time_completed}%;"}
-  .bar.bar-success{style:"width: #{@goal.percentage_completed}%;"}
+  .bar.bar-success{style:"width: #{@goal.percentage_completed_above_minimum}%;"}
 
 .row
-  %span.span1 0
+  %span.span1 0 #{@goal.unit}
   %span.span1.offset10.text-right #{@goal.pass_minimum.round(0)}
 
 %br

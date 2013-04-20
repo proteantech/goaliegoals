@@ -37,16 +37,22 @@ class Goal < ActiveRecord::Base
     days_since_start / length().to_f * 100
   end
 
+  def percentage_completed_above_minimum
+    ret = 0
+    p = percentage_completed - todays_percentage_of_time_completed
+    ret = p if p > 0
+    ret
+  end
+
   def percentage_completed
     log_sum.to_f / pass_minimum * 100
   end
 
   def todays_minimum
-    days_since_start / length().to_f * per_diem()
+    days_since_start * per_diem
   end
 
   def pass_minimum
-    per_diem
     length() * per_diem
   end
 
