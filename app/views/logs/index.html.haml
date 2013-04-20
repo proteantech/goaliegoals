@@ -2,10 +2,23 @@
 
 - if @goal.on_target
   .alert.alert-success.text-center
-    On Target to Achieve Goal
+    On Target to Achieve Goal:
+    %span{style: 'color: black'} #{@goal.to_s}
 - else
   .alert.alert-error.text-center
-    Failing to Achieve Goal
+    Failing to Achieve Goal:
+    %span{style: 'color: black'} #{@goal.to_s}
+
+.progress
+  .bar.bar-danger{style:"width: #{@goal.todays_percentage_of_time_completed}%;"}
+  .bar.bar-success{style:"width: #{@goal.percentage_completed}%;"}
+
+.row
+  %span.span1 0
+  %span.span1.offset10.text-right #{@goal.pass_minimum.round(0)}
+
+%br
+%br
 
 %table{class: 'table table-condensed table-striped'}
   %tr
@@ -27,3 +40,4 @@
 %br
 .text-center
   = link_to 'New Log', new_goal_log_path, class: 'btn btn-primary'
+  = link_to 'Goal', @goal, class: 'btn'

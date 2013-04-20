@@ -25,6 +25,14 @@ module Goalie
 =end
     def self.daily_target(goal)
 
+      per_diem = per_diem(goal)
+
+      days_since_start = goal.days_since_start
+      p "days_since_start #{days_since_start}"
+      target = (days_since_start * per_diem).round(2)
+    end
+
+    def self.per_diem(goal)
       freq_unit_days = Goalie::DateUtil::UNIT_TO_DAYS[goal.frequency_unit.downcase.to_sym]
       p "freq_unit_days #{freq_unit_days}"
       freq_in_days = freq_unit_days / goal.frequency
@@ -32,10 +40,7 @@ module Goalie
 
       per_diem = goal.quantity / freq_in_days
       p "per_diem #{per_diem}"
-
-      days_since_start = (DateTime.now - goal.start).to_i
-      p "days_since_start #{days_since_start}"
-      target = (days_since_start * per_diem).round(2)
+      per_diem
     end
 
   end
