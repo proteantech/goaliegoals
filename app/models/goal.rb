@@ -1,6 +1,7 @@
 class Goal < ActiveRecord::Base
   attr_accessible :action, :end, :frequency, :frequency_unit, :quantity, :start, :unit
   has_many :logs, dependent: :destroy
+  belongs_to :user
 
   def to_s
     "#{action} %<quantity>g #{unit} %<frequency>g times per #{frequency_unit} starting #{start} and ending #{self.end}" % {

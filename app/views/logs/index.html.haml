@@ -41,7 +41,7 @@
     .bar.bar-danger{style:"width: #{@goal.todays_percentage_of_time_completed - @goal.percentage_completed}%;"}
 .row
   %span.span1 0
-  %span.span2.offset4.text-center #{@goal.unit} #{@goal.action}
+  %span.span2.offset4.text-center #{@goal.unit}
   %span.span1.offset4.text-right
     = "%g" % @goal.pass_minimum.round(2)
 

@@ -2,7 +2,7 @@ class GoalsController < ApplicationController
   # GET /goals
   # GET /goals.json
   def index
-    @goals = Goal.all
+    @goals = current_user.goals
 
     respond_to do |format|
       format.html # index.html.erb
@@ -41,6 +41,7 @@ class GoalsController < ApplicationController
   # POST /goals.json
   def create
     @goal = Goal.new(params[:goal])
+    @goal.user = current_user
 
     respond_to do |format|
       if @goal.save
