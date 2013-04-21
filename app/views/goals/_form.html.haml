@@ -1,21 +1,21 @@
 = form_for @goal do |f|
 
   .goal.row
-    %span.field.span1
+    %span.field.span2
       = f.label :action
       = f.text_field :action
-    %span.field.span1
+    %span.field.span2
       = f.label :quantity
       = f.text_field :quantity
-    %span.field.span1
+    %span.field.span2
       = f.label :unit
       = f.text_field :unit
-    %span.field.span1
+    %span.field.span2
       = f.label :frequency
       = f.text_field :frequency
-    %span.field.span1{style: 'padding-top:30px; height: 35px;'}
+    %span.field.span2{style: 'padding-top:30px; height: 35px;'}
       &nbsp;times per
-    %span.field.span1
+    %span.field.span2
       = f.label :frequency_unit, 'Freq. Unit'
       = f.text_field :frequency_unit
 
