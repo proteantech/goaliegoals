@@ -61,7 +61,7 @@
       %td= log.quantity
       %td= log.description
       %td
-        = link_to 'View', [@goal, log], class: 'btn btn-mini btn-inverse '
+        = link_to 'Show', [@goal, log], class: 'btn btn-mini btn-inverse '
         = link_to 'Edit', edit_goal_log_path(@goal, log), class: 'btn btn-mini btn-inverse'
         = link_to 'Delete', [@goal, log], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-mini btn-inverse'
 

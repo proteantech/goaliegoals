@@ -13,7 +13,7 @@
       %td= <%= singular_table_name %>.<%= attribute.name %>
 <% end -%>
       %td
-        = link_to 'View', <%= singular_table_name %>, class: 'btn btn-mini btn-inverse '
+        = link_to 'Show', <%= singular_table_name %>, class: 'btn btn-mini btn-inverse '
         = link_to 'Edit', edit_<%= singular_table_name %>_path(<%= singular_table_name %>), class: 'btn btn-mini btn-inverse'
         = link_to 'Delete', <%= singular_table_name %>, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-mini btn-inverse'
 
