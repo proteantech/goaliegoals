@@ -2,6 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.example {
+  margin-top: -10px;
+  color: gray;
+}
+
+#times-per_field {
+  padding-top: 5px;
+}
+
+#times-per_example {
+  padding-top: 5px;
+  color: gray;
+}
+
 .goal {
 
   .field {
@@ -37,4 +51,8 @@
 }
 .fail {
   background-color: green;
+}
+
+form table input {
+  width: 100px;
 }
