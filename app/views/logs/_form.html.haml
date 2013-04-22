@@ -1,11 +1,10 @@
 = form_for [@goal, @log] do |f|
   - if @log.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@log.errors.count, "error")} prohibited this log from being saved:"
+    .alert.alert-error
+      = "#{pluralize(@log.errors.count, "error")} prohibited this goal from being saved:"
       %ul
         - @log.errors.full_messages.each do |msg|
           %li= msg
-
   .field
     = f.label :log_date
     = f.date_select :log_date
