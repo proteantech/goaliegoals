@@ -3,7 +3,7 @@ gem 'rails', '3.2.13'
 
 #gem 'sqlite3', group => [:development, :test]
 #gem 'pg', group => :production
-gem 'pg'
+gem 'pg' #
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
