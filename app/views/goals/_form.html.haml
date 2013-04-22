@@ -1,3 +1,10 @@
+- if @goal.errors.any?
+  .alert.alert-error
+    = "#{pluralize(@goal.errors.count, "error")} prohibited this goal from being saved:"
+    %ul
+      - @goal.errors.full_messages.each do |msg|
+        %li= msg
+
 = form_for @goal do |f|
 
   %table

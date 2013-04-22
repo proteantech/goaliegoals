@@ -3,6 +3,9 @@ class Goal < ActiveRecord::Base
   has_many :logs, dependent: :destroy
   belongs_to :user
 
+  validates_presence_of :action, :end, :frequency, :frequency_unit, :quantity, :start, :unit
+  validates_numericality_of :frequency, :quantity
+
   def to_s
     "#{action} %<quantity>g #{unit} %<frequency>g times per #{frequency_unit} starting #{start} and ending #{self.end}" % {
         quantity: quantity,
