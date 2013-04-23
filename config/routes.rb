@@ -3,10 +3,13 @@ Goalie::Application.routes.draw do
     resources :logs
   end
 
-  authenticated :user do
-    root :to => 'home#index'
-  end
-  root :to => "home#index"
   devise_for :users
   resources :users
+
+  authenticated :user do
+    root :to => 'goals#index'
+  end
+  devise_scope :user do
+    root to: "devise/sessions#new"
+  end
 end
