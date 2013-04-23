@@ -21,13 +21,13 @@
   .span3{style: 'text-align: right;'}
     %b Total Completed:
   .span4
-    %span.label.label-success #{@goal.log_sum}
+    %span.label.label-success #{sprintf('%g', @goal.log_sum.round(2))}
 
 .row
   .span3{style: 'text-align: right;'}
-    %b Minimum Needed to Stay On Track:
+    %b Minimum to Stay on Track:
   .span4
-    %span.label.label-important #{@goal.todays_minimum.round(2)}
+    %span.label.label-important #{sprintf('%g', @goal.todays_minimum.round(2))}
 
 %br
 
