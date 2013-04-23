@@ -8,6 +8,8 @@ module Goalie
 
     }
 
+    TIME_UNITS = ['day', 'week', 'month', 'year']
+
 =begin
     # 2 books 2 times per month
     # freq_unit_days = 30

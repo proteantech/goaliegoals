@@ -33,8 +33,8 @@
         #times-per_field times per
         .text-center#times-per_example times per
       %td
-        = f.text_field :frequency_unit
-        .example.text-center Week
+        = f.select :frequency_unit, options: Goalie::DateUtil::TIME_UNITS
+        .example.text-center week
 
   %br
 

@@ -18,14 +18,6 @@
 
 .goal {
 
-  .field {
-    //display: inline;
-  }
-
-  label {
-    //display: inline;
-  }
-
   input {
     width: 75px !important;
   }
@@ -37,6 +29,10 @@
   select {
     width: 75px !important;
   }
+}
+
+#goal_frequency_unit {
+  width: 100px;
 }
 
 .target {
