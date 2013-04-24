@@ -11,6 +11,18 @@ class GoalTest < ActiveSupport::TestCase
      assert_equal 60, goals(:books_2_per_month).length
   end
 
+  def test_log_sum_2_books_per_day
+    assert_equal 30, goals(:books_2_per_day).log_sum
+  end
+
+  def test_pass_minimum_2_books_per_day
+    assert_equal 120, goals(:books_2_per_day).pass_minimum
+  end
+
+  def test_percent_completed_50
+    assert_equal 25, goals(:books_2_per_day).percentage_completed
+  end
+
   def test_days_since_start_15
     DateTime.expects(:now).returns(DateTime.new(2013, 4, 16)).at_least(1)
     assert_equal 15, goals(:books_2_per_month).days_since_start
@@ -33,18 +45,18 @@ class GoalTest < ActiveSupport::TestCase
     assert_equal(expected, g.per_diem)
   end
 
-  def test_daily_target_2_books_per_month
+  def test_todays_minimum_2_books_per_month
     DateTime.expects(:now).returns(DateTime.new(2013, 5, 31)).at_least(0)
     g = goals(:books_2_per_month)
     expected = 8
-    assert_equal(expected, g.daily_target)
+    assert_equal(expected, g.todays_minimum.round(2))
   end
 
-  def test_daily_target_2_books_per_day
+  def test_todays_minimum_2_books_per_day
     DateTime.expects(:now).returns(DateTime.new(2013, 5, 31)).at_least(0)
     g = goals(:books_2_per_day)
     expected = 120
-    assert_equal(expected, g.daily_target)
+    assert_equal(expected, g.todays_minimum)
   end
 
 end

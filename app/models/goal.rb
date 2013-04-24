@@ -14,7 +14,7 @@ class Goal < ActiveRecord::Base
 
   end
 
-  def daily_target
+  def todays_minimum
     target = (days_since_start * per_diem).round(2)
   end
 
@@ -34,7 +34,7 @@ class Goal < ActiveRecord::Base
   end
 
   def on_target
-    log_sum >= daily_target
+    log_sum >= todays_minimum
   end
 
   def todays_percentage_of_time_completed
@@ -43,13 +43,15 @@ class Goal < ActiveRecord::Base
 
   def percentage_completed_above_minimum
     ret = 0
-    p = percentage_completed - todays_percentage_of_time_completed
-    ret = p if p > 0
+    pcent = percentage_completed - todays_percentage_of_time_completed
+    ret = pcent if pcent > 0
     ret
   end
 
   def percentage_completed
-    log_sum.to_f / pass_minimum * 100
+    pcent = log_sum.to_f / pass_minimum * 100
+    pcent = 100 if pcent > 100
+    pcent
   end
 
   def todays_minimum

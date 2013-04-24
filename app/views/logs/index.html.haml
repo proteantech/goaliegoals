@@ -9,37 +9,19 @@
     Failing to Achieve Goal:
     %span{style: 'color: black'} #{@goal.to_s}
 
--#.row
--#  .span1
--#    %span.badge.badge-important{style: "position: absolute; left: #{@goal.todays_percentage_of_time_completed}%"} #{@goal.todays_minimum.round(2)}
+.progress.log
+  .progress-label
+    Minimum to Stay on Track:
+    %span.progress-unit #{sprintf('%g', @goal.todays_minimum.round(2))} #{@goal.unit}
+  .bar.bar-danger{style:"width: #{@goal.todays_percentage_of_time_completed}%;"}
 
--#.blah{style:"position:relative;"}
--#  %span{style: "position: absolute; left: #{@goal.todays_percentage_of_time_completed}%"} #{@goal.todays_minimum.round(2)}
+.progress.log
+  .progress-label
+    Total Completed:
+    %span.progress-unit #{sprintf('%g', @goal.log_sum.round(2))} #{@goal.unit}
+  .bar.bar-success{style:"width: #{@goal.percentage_completed}%;"}
 
-
-.row
-  .span3{style: 'text-align: right;'}
-    %b Total Completed:
-  .span4
-    %span.label.label-success #{sprintf('%g', @goal.log_sum.round(2))}
-
-.row
-  .span3{style: 'text-align: right;'}
-    %b Minimum to Stay on Track:
-  .span4
-    %span.label.label-important #{sprintf('%g', @goal.todays_minimum.round(2))}
-
-%br
-
-- if @goal.percentage_completed_above_minimum > 0
-  .progress
-    .bar.bar-danger{style:"width: #{@goal.todays_percentage_of_time_completed}%;"}
-    .bar.bar-success{style:"width: #{@goal.percentage_completed_above_minimum}%;"}
-- else
-  .progress
-    .bar.bar-success{style:"width: #{@goal.percentage_completed}%;"}
-    .bar.bar-danger{style:"width: #{@goal.todays_percentage_of_time_completed - @goal.percentage_completed}%;"}
-.row
+.row.log-timeline
   %span.span1 0
   %span.span2.offset4.text-center #{@goal.unit}
   %span.span1.offset4.text-right

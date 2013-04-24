@@ -25,7 +25,7 @@ module Goalie
     # days_since_start = 60
     # target = 60 * .5 = 120
 =end
-    def self.daily_target(goal)
+    def self.todays_minimum(goal)
 
       per_diem = per_diem(goal)
 
