@@ -4,7 +4,7 @@ Goalie::Application.routes.draw do
   end
 
   devise_for :users
-  resources :users
+  #resources :users
 
   authenticated :user do
     root :to => 'goals#index'
