@@ -9,8 +9,8 @@ soccerball.png: soccerball-6ba4aa64ef66105e0c9f11f338113dde.png
 soccerball/index.png: soccerball-6ba4aa64ef66105e0c9f11f338113dde.png
 application.js: application-0bbe4d5c96755f942f3c9e73f5968451.js
 application/index.js: application-0bbe4d5c96755f942f3c9e73f5968451.js
-application.css: application-86d9c048cbf3c812c7b8705f5389bfbe.css
-application/index.css: application-86d9c048cbf3c812c7b8705f5389bfbe.css
+application.css: application-f7168c9f44ddcc27432c0503899b99c0.css
+application/index.css: application-f7168c9f44ddcc27432c0503899b99c0.css
 glyphicons-halflings-white.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
 glyphicons-halflings-white/index.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
 glyphicons-halflings.png: glyphicons-halflings-2851b489e8c39f8fad44fc10efb99c3e.png
