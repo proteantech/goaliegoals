@@ -1,4 +1,50 @@
-%h3 Home
-- @users.each do |user|
-  %p
-    User: #{link_to user.name, user}
+:javascript
+  $(function(){
+    $("#slides").slidesjs({
+      width: 800,
+      height: 410,
+      play: {
+        active: true,
+          // [boolean] Generate the play and stop buttons.
+          // You cannot use your own buttons. Sorry.
+        effect: "fade",
+          // [string] Can be either "slide" or "fade".
+        interval: 8000,
+          // [number] Time spent on each slide in milliseconds.
+        auto: true,
+          // [boolean] Start playing the slideshow on load.
+        swap: true,
+          // [boolean] show/hide stop and play buttons
+        pauseOnHover: false,
+          // [boolean] pause a playing slideshow on hover
+        restartDelay: 2500
+          // [number] restart delay on inactive slideshow
+      },
+      pagination: {
+        active: false
+      }
+    });
+
+    $("a.slidesjs-previous").html(
+      '<i class="icon-step-backward"></i>'
+    );
+    $("a.slidesjs-next").html(
+          '<i class="icon-step-forward"></i>'
+    );
+    $("a.slidesjs-play").html(
+              '<i class="icon-play"></i>'
+    );
+    $("a.slidesjs-stop").html(
+              '<i class="icon-stop"></i>'
+        );
+
+  });
+
+%h1.text-center Welcome to Goalie!
+%p.welcome-intro Goalie is an application designed to help you create, manage, and achieve SMART goals. It allows you to quickly determine if |
+ you are on track to meet your goals. It also allows you to see how far ahead or behind you are on your goals. This    |
+ kind of instant visual feedback is critical to helping you achieve your goals.                                        |
+#slides.text-center
+  =image_tag 'goalielogs-mac.png', id: 'logs-img'
+  =image_tag 'goaliegoals-mac-cropped.png', id: 'goals-img'
+  -#=image_tag 'goalielogs_cropped_75pcent.png'

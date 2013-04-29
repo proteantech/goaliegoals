@@ -9,6 +9,9 @@ Goalie::Application.routes.draw do
   authenticated :user do
     root :to => 'goals#index'
   end
+
+  root to: 'home#index'
+
   devise_scope :user do
     root to: "devise/sessions#new"
   end

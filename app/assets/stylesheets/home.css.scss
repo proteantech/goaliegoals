@@ -1,3 +1,33 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* Prevents slides from flashing */
+#slides {
+  display:none;
+  img {
+    padding: 10px 10px 10px 10px;
+    margin: 10px;
+    box-shadow: inset 0px 0px 10px #000;
+  }
+  height: 450px;
+  width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slidesjs-container {
+  //position: static;
+}
+
+#goals-img {
+  height: 219px;
+  width: 800px !important;
+}
+
+#logs-img {
+  height: 401px;
+  width: 800px !important;
+}
+
+p.welcome-intro {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}

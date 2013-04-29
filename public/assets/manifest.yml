@@ -1,12 +1,16 @@
 ---
+goaliegoals-mac-cropped.png: goaliegoals-mac-cropped-a5edfbe48c7c62376c500b482a0f68b6.png
+goaliegoals-mac-cropped/index.png: goaliegoals-mac-cropped-a5edfbe48c7c62376c500b482a0f68b6.png
+goalielogs-mac.png: goalielogs-mac-88865b9f4a0aa1b08f5eff7d0ea29302.png
+goalielogs-mac/index.png: goalielogs-mac-88865b9f4a0aa1b08f5eff7d0ea29302.png
 references.txt: references-c50021f8fe4c69fca15428bc538f60ae.txt
 references/index.txt: references-c50021f8fe4c69fca15428bc538f60ae.txt
 soccerball.png: soccerball-6ba4aa64ef66105e0c9f11f338113dde.png
 soccerball/index.png: soccerball-6ba4aa64ef66105e0c9f11f338113dde.png
-application.js: application-d50c4f66d5bf9a5c1124c66f42cb1934.js
-application/index.js: application-d50c4f66d5bf9a5c1124c66f42cb1934.js
-application.css: application-7b0cb1d41756e33d6d0748b8f00f7ee1.css
-application/index.css: application-7b0cb1d41756e33d6d0748b8f00f7ee1.css
+application.js: application-0bbe4d5c96755f942f3c9e73f5968451.js
+application/index.js: application-0bbe4d5c96755f942f3c9e73f5968451.js
+application.css: application-86d9c048cbf3c812c7b8705f5389bfbe.css
+application/index.css: application-86d9c048cbf3c812c7b8705f5389bfbe.css
 glyphicons-halflings-white.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
 glyphicons-halflings-white/index.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
 glyphicons-halflings.png: glyphicons-halflings-2851b489e8c39f8fad44fc10efb99c3e.png
