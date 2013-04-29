@@ -7,7 +7,7 @@ class Goal < ActiveRecord::Base
   validates_numericality_of :frequency, :quantity
 
   def to_s
-    "#{action} %<quantity>g #{unit} %<frequency>g times per #{frequency_unit} starting #{start} and ending #{self.end}" % {
+    "#{action} %<quantity>g #{unit} %<frequency>g times a #{frequency_unit} starting #{start} and ending #{self.end}" % {
         quantity: quantity,
         frequency: frequency
     }

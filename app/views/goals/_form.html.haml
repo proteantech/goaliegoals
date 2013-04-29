@@ -30,8 +30,8 @@
         = f.text_field :frequency
         .example.text-center 5
       %td{style: 'padding-left: 10px; padding-right: 10px;'}
-        #times-per_field times per
-        .text-center#times-per_example times per
+        #times-per_field times a
+        .text-center#times-per_example times a
       %td
         = f.select :frequency_unit, options: Goalie::DateUtil::TIME_UNITS
         .example.text-center week
