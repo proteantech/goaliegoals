@@ -1,0 +1,10 @@
+Goal Management application for SMART goals
+Create SMART Goals and track your progress as you go. Quickly see if you're on track to meet your goals or are falling behind.
+
+http://en.wikipedia.org/wiki/SMART_criteria
+
+SMART - Specific, Measurable, Action-Focused, Results-Oriented, Time-bound
+
+Try out my new website for goal management. It's still very much in the beta phase, but the core functionality is there to help you achieve your goals today! =)
+
+Goalie is an application designed to help you create, manage, and achieve SMART goals. It begins by making sure your goals adhere to the SMART criteria (Specific, Measurable, Action-Focused, Results-Oriented, Time-bound). Once you've created your goals, you can log your progress and  quickly determine if you are on track to meet your goals. It also allows you to see how far ahead or behind you are on your goals. This kind of instant visual feedback is critical to helping you succeed in attaining your goals.
