@@ -30,6 +30,27 @@
 
 %p
   .row
-    .offset2
-      = link_to 'Edit', edit_goal_log_path(@goal, @log), class: 'btn btn-primary'
-      = link_to 'View All', goal_logs_path(@goal), class: 'btn'
+    .offset1
+      .btn-group
+        = link_to 'Edit', edit_goal_log_path(@goal, @log), class: 'btn btn-primary'
+
+        .btn-group.dropup{style:'padding-left: 5px;'}
+          %a.btn.dropdown-toggle{data: {toggle:'dropdown'}, href: '#'}
+            Action
+            %span.caret
+          %ul.dropdown-menu.dropup
+            %li
+              = link_to 'Delete', [@goal, @log], :method => :delete, :data => { :confirm => 'Are you sure?' }
+            %li
+              = link_to 'New Log', new_goal_log_path
+        .btn-group.dropup
+          %a.btn.dropdown-toggle{data: {toggle:'dropdown'}, href: '#'}
+            View
+            %span.caret
+          %ul.dropdown-menu
+            %li
+              = link_to 'Goals', goals_path
+            %li
+              = link_to 'Goal', edit_goal_path(@goal)
+            %li
+              = link_to 'Logs', goal_logs_url(@goal)
