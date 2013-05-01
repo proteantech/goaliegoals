@@ -17,7 +17,7 @@
   .actions
 
     - if @log.new_record?
-      = link_to goal_logs_url(@goal), class: 'btn btn-secondary' do
+      = link_to goal_logs_url(@goal), class: 'btn btn-secondary', style: 'margin-left: 5px;' do
         %i.icon-arrow-left
         Back to Logs
 
