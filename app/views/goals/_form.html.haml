@@ -45,11 +45,30 @@
     .field.span12
       = f.label :end
       = f.date_select :end
-  .actions.btn-group
+  .actions
+    - if @goal.new_record?
+      = link_to goals_path, class: 'btn btn-secondary' do
+        %i.icon-arrow-left
+        Back to Goals
     = f.submit 'Save', class: 'btn btn-primary'
     - if !@goal.new_record?
-      = link_to 'Logs', goal_logs_url(@goal), class: 'btn btn-secondary'
-      = link_to 'Show', @goal, class: 'btn btn-secondary'
-      = link_to 'Delete', @goal, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-secondary'
-      = link_to 'New Goal', new_goal_path, class: 'btn btn-secondary'
-    = link_to 'View All', goals_path, class: 'btn btn-secondary'
+      .btn-group.dropup{style:'padding-left: 5px;'}
+        %a.btn.dropdown-toggle{data: {toggle:'dropdown'}, href: '#'}
+          Action
+          %span.caret
+        %ul.dropdown-menu.dropup
+          %li
+            = link_to 'Delete', @goal, :method => :delete, :data => { :confirm => 'Are you sure?' }
+          %li
+            = link_to 'New Goal', new_goal_path
+      .btn-group.dropup
+        %a.btn.dropdown-toggle{data: {toggle:'dropdown'}, href: '#'}
+          View
+          %span.caret
+        %ul.dropdown-menu
+          %li
+            = link_to 'Details', @goal
+          %li
+            = link_to 'Goals', goals_path
+          %li
+            = link_to 'Logs', goal_logs_url(@goal)
