@@ -6,6 +6,18 @@ class Goal < ActiveRecord::Base
   validates_presence_of :action, :end, :frequency_unit, :start, :unit
   validates_numericality_of :frequency, :quantity
 
+  validates :frequency_unit,
+            :inclusion => { :in => Goalie::DateUtil::TIME_UNITS,
+                                   :message => "%{value} is not a Frequency Unit. It should be one of the following: #{Goalie::DateUtil::TIME_UNITS}" }
+
+  validate :end_is_after_start
+
+  def end_is_after_start
+    if self.end < start
+      errors.add(:end, 'end date must be after or equal to start date')
+    end
+  end
+
   def to_s
     "#{action} %<quantity>g #{unit} %<frequency>g times a #{frequency_unit} starting #{start} and ending #{self.end}" % {
         quantity: quantity,
