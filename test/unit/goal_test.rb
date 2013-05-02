@@ -2,6 +2,62 @@ require 'test_helper'
 
 class GoalTest < ActiveSupport::TestCase
 
+  def test_create
+    h = {
+        :action =>          'Eat',
+        :quantity =>        2,
+        :unit =>            'vegetables',
+        :frequency =>       1,
+        :frequency_unit =>  'day',
+        :start =>           Date.today,
+        :end =>             Date.today >> 1
+    }
+    Goal.create!(h)
+  end
+
+  def test_bad_frequency_unit
+    h = {
+        :action =>          'Eat',
+        :quantity =>        2,
+        :unit =>            'vegetables',
+        :frequency =>       1,
+        :frequency_unit =>  'bad_day',
+        :start =>           Date.today,
+        :end =>             Date.today >> 1
+    }
+    assert_raise ActiveRecord::RecordInvalid do
+      Goal.create!(h)
+    end
+  end
+
+  def test_end_date_equal_start
+    h = {
+        :action =>          'Eat',
+        :quantity =>        2,
+        :unit =>            'vegetables',
+        :frequency =>       1,
+        :frequency_unit =>  'day',
+        :start =>           Date.today,
+        :end =>             Date.today
+    }
+    Goal.create!(h)
+  end
+
+  def test_end_date_before_start
+    h = {
+        :action =>          'Eat',
+        :frequency =>       2,
+        :frequency_unit =>  'vegetables',
+        :quantity =>        1,
+        :unit =>            'bad_day',
+        :start =>           Date.today,
+        :end =>             Date.today << 1
+    }
+    assert_raise ActiveRecord::RecordInvalid do
+      Goal.create!(h)
+    end
+  end
+
   def test_todays_minimum
     DateTime.expects(:now).returns(DateTime.new(2013, 4, 3)).at_least(1)
     assert_equal 4, goals(:books_2_per_day).todays_minimum
