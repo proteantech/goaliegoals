@@ -14,12 +14,11 @@
         .nav-framer
           = render 'layouts/navigation'
     #main{:role => "main"}
-      .framer
-        .container
-          .row
-            .span12
-              = render 'layouts/messages'
-              = yield
-            %footer
-        / ! end of .container
-    / ! end of #main
+      .padded-sides
+        .framer
+          .container
+            .row
+              .span12
+                = render 'layouts/messages'
+                = yield
+              %footer
