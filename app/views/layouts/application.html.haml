@@ -11,16 +11,15 @@
   %body{:class => "#{controller_name} #{action_name}"}
     .navbar.navbar-fixed-top
       %nav.navbar-inner
-        .container
-          .body_aligned
-            = render 'layouts/navigation'
+        .nav-framer
+          = render 'layouts/navigation'
     #main{:role => "main"}
-      .container
-        .content
+      .framer
+        .container
           .row
             .span12
               = render 'layouts/messages'
               = yield
-          %footer
-      / ! end of .container
+            %footer
+        / ! end of .container
     / ! end of #main
