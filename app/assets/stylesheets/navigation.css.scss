@@ -2,3 +2,30 @@
   background-color: transparent;
   color: black;
 }
+
+.navbar {
+  width: 980px;
+  margin: 0 auto;
+}
+
+.full-width-wrapper {
+  margin-bottom: 10px;
+  min-width: 1010px;
+  width: 100%;
+  background-color: rgb(249, 249, 249);
+  background-image: linear-gradient(to bottom, white, rgb(242, 242, 242));
+  background-repeat: repeat-x;
+  border: 1px solid rgb(212, 212, 212);
+  border-radius: 4px 4px 4px 4px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.067);
+  padding: 0;
+}
+
+.navbar-inner {
+  padding: 0;
+}
+
+nav.navbar-inner {
+  box-shadow: none !important;
+  border: 0 !important;
+}

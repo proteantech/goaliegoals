@@ -1,4 +1,3 @@
-!!!
 %html
   %head
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
@@ -9,9 +8,9 @@
         = csrf_meta_tags
         = yield(:head)
   %body{:class => "#{controller_name} #{action_name}"}
-    .navbar.navbar-fixed-top
-      %nav.navbar-inner
-        .nav-framer
+    .full-width-wrapper.navbar-inner
+      .navbar
+        %nav.navbar-inner
           = render 'layouts/navigation'
     #main{:role => "main"}
       .padded-sides
