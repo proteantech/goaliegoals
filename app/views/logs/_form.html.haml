@@ -7,7 +7,7 @@
           %li= msg
   .field
     = f.label :log_date
-    = f.date_select :log_date
+    = f.text_field :log_date
   .field
     = f.label :quantity
     = f.text_field :quantity
@@ -42,3 +42,8 @@
           %li= link_to 'Goals', goals_path
           %li= link_to 'Goal', edit_goal_path(@goal)
           %li= link_to 'Logs', goal_logs_url(@goal)
+:javascript
+  $(function() {
+    $("#log_log_date").datepicker({dateFormat: "yy-mm-dd"});
+  });
+
