@@ -9,3 +9,7 @@ $dateIconWidth: 28px;
 input.hasDatepicker {
   width: $inputWidth - $dateIconWidth;
 }
+
+.input-append {
+  margin-bottom: 0px;
+}
