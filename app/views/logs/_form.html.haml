@@ -7,7 +7,10 @@
           %li= msg
   .field
     = f.label :log_date
-    = f.text_field :log_date
+    .input-append
+      = f.text_field :log_date
+      %label.add-on{for: 'log_log_date'}
+        %i.icon-calendar
   .field
     = f.label :quantity
     = f.text_field :quantity
