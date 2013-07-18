@@ -1,7 +1,6 @@
 Goalie::Application.routes.draw do
   resources :goals do
     resources :logs
-    end
   end
 
   post 'goals/:goal_id/logs/create_solo', to: 'logs#create_solo', as: 'logs_create_solo'
