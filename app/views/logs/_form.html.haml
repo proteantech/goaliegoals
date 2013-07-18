@@ -1,4 +1,5 @@
-= form_for [@goal, @log] do |f|
+- url = params[:action] == 'edit' ? {} : {url: logs_create_solo_path}
+= form_for [@goal, @log], url do |f|
   - if @log.errors.any?
     .alert.alert-error
       = "#{pluralize(@log.errors.count, "error")} prohibited this goal from being saved:"
@@ -8,7 +9,7 @@
   .field
     = f.label :log_date
     .input-append
-      = f.text_field :log_date
+      = f.text_field :log_date, {value: Time.zone.today.to_s(:db), class: 'log-edit'}
       %label.add-on{for: 'log_log_date'}
         %i.icon-calendar
   .field
@@ -45,8 +46,3 @@
           %li= link_to 'Goals', goals_path
           %li= link_to 'Goal', edit_goal_path(@goal)
           %li= link_to 'Logs', goal_logs_url(@goal)
-:javascript
-  $(function() {
-    $("#log_log_date").datepicker({dateFormat: "yy-mm-dd"});
-  });
-

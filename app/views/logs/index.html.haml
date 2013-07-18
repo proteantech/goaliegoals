@@ -3,11 +3,13 @@
 - if @goal.on_target
   .alert.alert-success.text-center
     On Target to Achieve Goal:
-    %span{style: 'color: black'} #{@goal.to_s}
+    = link_to(edit_goal_path(@goal), class: 'goal-link') do
+      #{@goal.to_s}
 - else
   .alert.alert-error.text-center
     Failing to Achieve Goal:
-    %span{style: 'color: black'} #{@goal.to_s}
+    = link_to(edit_goal_path(@goal), class: 'goal-link') do
+      #{@goal.to_s}
 
 .progress.log
   .progress-label
@@ -30,24 +32,40 @@
 %br
 %br
 
+= form_for [@goal, @log], html: {class: 'no-margins'} do |f|
+  - if @log.errors.any?
+    .alert.alert-error
+      = "#{pluralize(@log.errors.count, "error")} prohibited this goal from being saved:"
+      %ul
+        - @log.errors.full_messages.each do |msg|
+          %li= msg
+
+  %table.table.table-condensed.no-margins
+    %tr
+      %td.date-field.form-column
+        .input-append
+          = f.text_field :log_date, {value: Time.zone.today.to_s(:db), class: 'date-field'}
+          %label.add-on{for: 'log_log_date'}
+            %i.icon-calendar
+      %td.quantity-column.form-column
+        = f.text_field :quantity, {class: 'quantity-field'}
+      %td.description-column.form-column
+        = f.text_field :description, {class: 'description-field'}
+      %td.form-column.text-center
+        %button.btn.btn-primary Add Log
 %table{class: 'table table-condensed table-striped table-bordered'}
   %tr
-    %th Log Date
-    %th Quantity
-    %th Description
-    %th Actions
+    %th.text-center.date-column Log Date
+    %th.text-center.quantity-column Quantity
+    %th.text-center.description-column Description
+    %th.text-center Actions
 
   - @logs.each do |log|
     %tr
-      %td= log.log_date
-      %td= log.quantity
+      %td.text-center.date-column= log.log_date
+      %td.text-center.quantity-column= log.quantity
       %td= log.description
-      %td
+      %td.text-center
         = link_to 'Show', [@goal, log], class: 'btn btn-mini btn-inverse '
         = link_to 'Edit', edit_goal_log_path(@goal, log), class: 'btn btn-mini btn-inverse'
         = link_to 'Delete', [@goal, log], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-mini btn-inverse'
-
-%br
-.text-center
-  = link_to 'New Log', new_goal_log_path, class: 'btn btn-primary'
-  = link_to 'Goal', edit_goal_path(@goal), class: 'btn'

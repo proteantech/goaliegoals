@@ -14,6 +14,7 @@ class LogsController < ApplicationController
   # GET /logs.json
   def index
     @logs = @goal.logs
+    @log = Log.new
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @logs }
@@ -48,9 +49,28 @@ class LogsController < ApplicationController
       format.json { render json: @log }
     end
   end
+
   # POST /logs
   # POST /logs.json
   def create
+    @log = Log.new(params[:log])
+    @log.goal = @goal
+    @logs = @goal.logs
+
+    respond_to do |format|
+      if @log.save
+        format.html { redirect_to :back, notice: 'Log was successfully created.' }
+        format.json { render json: @log, status: :created, location: @log }
+      else
+        format.html { render action: 'index' }
+        format.json { render json: @log.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # POST /logs
+  # POST /logs.json
+  def create_solo
     @log = Log.new(params[:log])
     @log.goal = @goal
 

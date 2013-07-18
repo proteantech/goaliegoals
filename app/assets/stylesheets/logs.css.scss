@@ -23,3 +23,33 @@
 .progress.log {
   position: relative;
 }
+
+.date-field {
+  width: 94px;
+}
+
+.date-column {
+  width: 121px;
+}
+
+.quantity-column {
+  width: 121px;
+}
+
+.quantity-field {
+  width: 121px;
+}
+
+.description-column {
+  width: 402px;
+}
+
+.description-field {
+  width: 404px;
+}
+
+$inputWidth: 206px;
+$dateIconWidth: 28px;
+input.hasDatepicker.log-edit {
+  width: $inputWidth - $dateIconWidth;
+}

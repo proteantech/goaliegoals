@@ -1,0 +1,20 @@
+.no-margins {
+  margin: 0px;
+}
+
+.no-borders {
+  borders: 0px;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.goal-link {
+  color: black;
+  text-decoration: underline;
+  &:hover {
+    background-color: transparent;
+    color: #555555;
+  }
+}
