@@ -64,7 +64,7 @@
     %tr
       %td.text-center.date-column= log.log_date
       %td.text-center.quantity-column= log.quantity
-      %td= log.description
+      %td.description-column= log.description.blank? ? '' : log.description
       %td.text-center
         = link_to 'Show', [@goal, log], class: 'btn btn-mini btn-inverse '
         = link_to 'Edit', edit_goal_log_path(@goal, log), class: 'btn btn-mini btn-inverse'

@@ -13,7 +13,7 @@ class LogsController < ApplicationController
   # GET /logs
   # GET /logs.json
   def index
-    @logs = @goal.logs
+    @logs = @goal.logs.order('log_date DESC')
     @log = Log.new
     respond_to do |format|
       format.html # index.html.erb
