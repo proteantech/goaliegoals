@@ -45,11 +45,15 @@
 }
 
 .description-field {
-  width: 404px;
+  width: 100%;
 }
 
 $inputWidth: 206px;
 $dateIconWidth: 28px;
 input.hasDatepicker.log-edit {
   width: $inputWidth - $dateIconWidth;
+}
+
+label.table-input, input.table-input {
+  margin-bottom: 0;
 }
