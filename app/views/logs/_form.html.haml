@@ -1,11 +1,6 @@
 - url = params[:action] == 'edit' ? {} : {url: logs_create_solo_path}
 = form_for [@goal, @log], url do |f|
-  - if @log.errors.any?
-    .alert.alert-error
-      = "#{pluralize(@log.errors.count, "error")} prohibited this goal from being saved:"
-      %ul
-        - @log.errors.full_messages.each do |msg|
-          %li= msg
+  = render partial: 'errors'
   .field
     = f.label :log_date
     .input-append

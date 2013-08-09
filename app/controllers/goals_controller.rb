@@ -2,8 +2,8 @@ class GoalsController < ApplicationController
   # GET /goals
   # GET /goals.json
   def index
-    @goals = current_user.goals
-
+    @goals = current_user.goals.order('start DESC')
+    @goal = Goal.new
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @goals }
@@ -40,6 +40,25 @@ class GoalsController < ApplicationController
   # POST /goals
   # POST /goals.json
   def create
+    @goals = current_user.goals
+    @goal = Goal.new(params[:goal])
+    @goal.user = current_user
+
+    respond_to do |format|
+      if @goal.save
+        format.html { redirect_to :back, notice: 'Goal was successfully created.' }
+        format.json { render json: @goal, status: :created, location: @goal }
+      else
+        format.html { render action: 'index' }
+        format.json { render json: @goal.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+  # POST /goals
+  # POST /goals.json
+  def create_solo
     @goal = Goal.new(params[:goal])
     @goal.user = current_user
 
@@ -48,7 +67,7 @@ class GoalsController < ApplicationController
         format.html { redirect_to @goal, notice: 'Goal was successfully created.' }
         format.json { render json: @goal, status: :created, location: @goal }
       else
-        format.html { render action: "new" }
+        format.html { render action: 'new' }
         format.json { render json: @goal.errors, status: :unprocessable_entity }
       end
     end

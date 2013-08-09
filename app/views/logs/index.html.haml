@@ -31,6 +31,8 @@
 
 %br
 
+= render partial: 'errors'
+
 %table{class: 'table table-condensed table-striped table-bordered'}
   %tr
     %th.text-center.date-column Log Date
@@ -45,7 +47,7 @@
           = f.text_field :log_date, {value: Time.zone.today.to_s(:db), class: 'date-field table-input'}
           %label.add-on.table-input{for: 'log_log_date'}
             %i.icon-calendar
-      %td
+      %td.text-center
         = f.text_field :quantity, {class: 'quantity-field table-input'}
       %td
         = f.text_field :description, {class: 'description-field table-input'}

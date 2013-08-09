@@ -1,0 +1,6 @@
+- if @log.errors.any?
+  .alert.alert-error
+    = "#{pluralize(@log.errors.count, "error")} prohibited this goal from being saved:"
+    %ul
+      - @log.errors.full_messages.each do |msg|
+        %li= msg
