@@ -1,4 +1,9 @@
 class Goal < ActiveRecord::Base
+
+  # Need these two to use ApplicationHelper#goalie_number
+  include ActionView::Helpers
+  include ApplicationHelper
+
   attr_accessible :action, :end, :frequency, :frequency_unit, :quantity, :start, :unit
   has_many :logs, dependent: :destroy
   belongs_to :user
@@ -19,11 +24,7 @@ class Goal < ActiveRecord::Base
   end
 
   def to_s
-    "#{action} %<quantity>g #{unit} %<frequency>g times a #{frequency_unit} starting #{start} and ending #{self.end}" % {
-        quantity: quantity,
-        frequency: frequency
-    }
-
+    "#{action} #{goalie_number(quantity)} #{unit} #{goalie_number(frequency)} times a #{frequency_unit} starting #{start} and ending #{self.end}"
   end
 
   def todays_minimum
