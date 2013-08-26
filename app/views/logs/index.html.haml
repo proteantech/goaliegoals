@@ -57,7 +57,7 @@
   - @logs.each do |log|
     %tr
       %td.text-center.date-column= log.log_date
-      %td.text-center.quantity-column= log.quantity
+      %td.text-center.quantity-column= goalie_number(log.quantity)
       %td.description-column= log.description.blank? ? '' : log.description
       %td.text-center
         = link_to 'Show', [@goal, log], class: 'btn btn-mini btn-inverse '

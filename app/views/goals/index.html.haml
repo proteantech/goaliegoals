@@ -45,9 +45,9 @@
   - @goals.each do |goal|
     %tr
       %td.text-center= goal.action
-      %td.text-center= goal.quantity
+      %td.text-center= goalie_number(goal.quantity)
       %td.text-center= goal.unit
-      %td.text-center= goal.frequency
+      %td.text-center= goalie_number(goal.frequency)
       %td.text-center= 'times a'
       %td.text-center= goal.frequency_unit
       %td.text-center= goal.start
