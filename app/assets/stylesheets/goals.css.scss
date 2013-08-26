@@ -2,6 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.goal-action-icon {
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+#times-a-field {
+  vertical-align: middle;
+}
+
 .action-field {
   width: 94px;
 }
