@@ -1,6 +1,7 @@
 - url = params[:action] == 'edit' ? {} : {url: logs_create_solo_path}
 = form_for [@goal, @log], url do |f|
   = render partial: 'errors'
+  = f.hidden_field :id
   .field
     = f.label :log_date
     .input-append
