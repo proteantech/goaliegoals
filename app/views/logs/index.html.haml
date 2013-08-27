@@ -52,7 +52,7 @@
       %td
         = f.text_field :description, {class: 'description-field table-input'}
       %td.text-center
-        %button.btn.btn-primary Add Log
+        %button.btn.btn-primary Add
 
   - @logs.each do |log|
     %tr
@@ -60,6 +60,5 @@
       %td.text-center.quantity-column= goalie_number(log.quantity)
       %td.description-column= log.description.blank? ? '' : log.description
       %td.text-center
-        = link_to 'Show', [@goal, log], class: 'btn btn-mini btn-inverse '
-        = link_to 'Edit', edit_goal_log_path(@goal, log), class: 'btn btn-mini btn-inverse'
-        = link_to 'Delete', [@goal, log], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-mini btn-inverse'
+        = link_to "<i class='icon-pencil'></i>".html_safe, edit_goal_log_path(@goal, log), title: 'Edit this Goal', class: 'goal-action-icon'
+        = link_to "<i class='icon-remove'></i>".html_safe, [@goal, log], :method => :delete, :data => { :confirm => 'Are you sure?' },  title: 'Delete this Goal', class: 'goal-action-icon'
