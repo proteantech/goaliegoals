@@ -38,9 +38,9 @@
         = f.text_field :end, {value: (Time.zone.today + 1.month).to_s(:db), class: 'date-field table-input'}
         %label.add-on.table-input{for: 'goal_end'}
           %i.icon-calendar
-    %td.text-center -
+    %td.text-center#status-field -
     %td.text-center
-      %button.btn.btn-primary Add Goal
+      %button.btn.btn-primary Add
 
   - @goals.each do |goal|
     %tr
