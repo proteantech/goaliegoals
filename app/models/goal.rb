@@ -18,7 +18,7 @@ class Goal < ActiveRecord::Base
   validate :end_is_after_start
 
   def end_is_after_start
-    if self.end < start
+    if self.end && start && (self.end < start)
       errors.add(:end, 'end date must be after or equal to start date')
     end
   end
