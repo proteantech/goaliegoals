@@ -2,6 +2,36 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.scale-max {
+  float: right;
+  margin-left: 0px;
+}
+
+.right-log-arrow {
+  //position: absolute;
+  //top: 0px;
+  //right: 0px;
+  margin-left: -10px;
+}
+
+.position-relative {
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+.float-right {
+  float: right;
+}
+
+.log-arrow-line {
+  margin-left: -10px;
+}
+
 .log-timeline {
   font-weight: bold;
 }

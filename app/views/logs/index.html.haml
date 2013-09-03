@@ -11,6 +11,16 @@
     = link_to(edit_goal_path(@goal), class: 'goal-link') do
       #{@goal.to_s}
 
+
+.row.log-timeline
+  .span 0 <
+  .span.log-arrow-line
+    %del #{("&nbsp;" * 200).html_safe}
+  .span.right-log-arrow
+    >
+  .span.text-right.scale-max
+    = "%g" % @goal.pass_minimum.round(2)
+
 .progress.log
   .progress-label
     Minimum to Stay on Track:
@@ -22,13 +32,6 @@
     Total Completed:
     %span.progress-unit #{sprintf('%g', @goal.log_sum.round(2))} #{@goal.unit}
   .bar.bar-success{style:"width: #{@goal.percentage_completed}%;"}
-
-.row.log-timeline
-  %span.span1 0
-  %span.span2.offset4.text-center #{@goal.unit}
-  %span.span1.offset4.text-right
-    = "%g" % @goal.pass_minimum.round(2)
-
 %br
 
 = render partial: 'errors'
