@@ -15,11 +15,13 @@
 .row.log-timeline
   .span 0 <
   .span.log-arrow-line
-    %del #{("&nbsp;" * 200).html_safe}
+    %del #{("&nbsp;" * 300).html_safe}
   .span.right-log-arrow
     >
   .span.text-right.scale-max
     = "%g" % @goal.pass_minimum.round(2)
+
+%br
 
 .progress.log
   .progress-label
