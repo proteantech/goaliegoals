@@ -2,6 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.table-header-standalone {
+  //margin-bottom: 0px;
+  border-radius: 4px 4px 0px 0px;
+}
+
+#action-header {
+  border-bottom-left-radius: 0px;
+}
+
+#actions-header {
+  border-bottom-right-radius: 0px;
+}
+
+.no-bottom-margin {
+  margin-bottom: 0px;
+}
+
+.edit-goal-row {
+  display: none;
+}
+
 .goal-action-icon {
   &:hover {
     background-color: transparent;
@@ -16,8 +37,16 @@
   vertical-align: middle;
 }
 
+.action-cell {
+  width: 96px;
+}
+
 .action-field {
   width: 94px;
+}
+
+.goal-quantity-cell {
+  width: 120px;
 }
 
 .goal-quantity-field {

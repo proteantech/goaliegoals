@@ -4,4 +4,10 @@
 $(() ->
   $('#goal_start').datepicker({dateFormat: 'yy-mm-dd'})
   $('#goal_end').datepicker({dateFormat: 'yy-mm-dd'})
+  $('.edit-goal-link').click( (eventObject) ->
+    $(this).parents('.view-goal-row').hide()
+    $(this).parents('form').children('.edit-goal-form').show()
+    return
+  )
+  return
 )
