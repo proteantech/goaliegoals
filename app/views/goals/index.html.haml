@@ -8,14 +8,14 @@
   %tr
     %th.text-center.action-cell#action-header Action
     %th.text-center.goal-quantity-cell Quantity
-    %th.text-center Unit
-    %th.text-center Freq.
-    %th.text-center -
-    %th.text-center F. unit
-    %th.text-center Start
-    %th.text-center End
-    %th.text-center Status
-    %th.text-center#actions-header Actions
+    %th.text-center.unit-cell Unit
+    %th.text-center.frequency-cell Freq.
+    %th.text-center.times-a-cell -
+    %th.text-center.frequency-unit-cell F. unit
+    %th.text-center.date-cell Start
+    %th.text-center.date-cell End
+    %th.text-center.status-cell Status
+    %th.text-center.actions-cell#actions-header Actions
 
 = form_for @goal, html: {class: 'no-margins'} do |f|
   %table{class: 'table table-condensed table-striped table-bordered'}

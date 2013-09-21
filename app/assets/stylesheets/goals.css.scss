@@ -3,8 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .table-header-standalone {
-  //margin-bottom: 0px;
+  margin-bottom: 0px;
   border-radius: 4px 4px 0px 0px;
+  border-bottom: none;
 }
 
 #action-header {
@@ -29,16 +30,17 @@
   }
 }
 
+
+.times-a-cell {
+  width: 52px;
+}
+
 #times-a-field {
   vertical-align: middle;
 }
 
-#status-field {
-  vertical-align: middle;
-}
-
 .action-cell {
-  width: 96px;
+  width: 100px;
 }
 
 .action-field {
@@ -46,24 +48,48 @@
 }
 
 .goal-quantity-cell {
-  width: 120px;
+  width: 100px;
 }
 
 .goal-quantity-field {
-  width: 80px;
+  width: 98px;
+}
+
+.unit-cell {
+  width: 70px;
 }
 
 .unit-field {
-  width: 70px;
+  width: 68px;
+}
+
+.frequency-cell {
+  width: 50px;
 }
 
 .frequency-field {
   width: 50px;
 }
 
+.frequency-unit-cell {
+  width: 80px;
+}
+
 .frequency-unit-field {
   width: 80px;
   margin-bottom: 0;
+}
+
+.date-cell {
+  width: 123px;
+}
+
+.status-cell {
+  width: 58px;
+}
+
+#status-field {
+  vertical-align: middle;
 }
 
 .example {
