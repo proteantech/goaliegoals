@@ -5,8 +5,8 @@ $(() ->
   $('#goal_start').datepicker({dateFormat: 'yy-mm-dd'})
   $('#goal_end').datepicker({dateFormat: 'yy-mm-dd'})
   $('.edit-goal-link').click( (eventObject) ->
-    $(this).parents('.view-goal-row').hide()
-    $(this).parents('form').children('.edit-goal-form').show()
+    $(this).parents('.view-goal-table').hide()
+    $($($(this).parents('.view-edit-pair')[0]).children('.edit-goal-table')[0]).show()
     return
   )
   return

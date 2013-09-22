@@ -46,53 +46,54 @@
         %button.btn.btn-primary Add
 
 - @goals.each do |goal|
-  = form_for goal, html: {class: 'no-margins'} do |f|
-    %table{class: 'table table-condensed table-striped table-bordered no-bottom-margin hidden'}
-      %tr.edit-goal-row
-        %td.text-center
-          = f.text_field :action, {class: 'action-field table-input'}
-        %td.text-center
-          = f.text_field :quantity, {class: 'goal-quantity-field table-input'}
-        %td.text-center
-          = f.text_field :unit, {class: 'unit-field table-input'}
-        %td.text-center
-          = f.text_field :frequency, {class: 'frequency-field table-input'}
-        %td.text-center#times-a-field times a
-        %td.text-center
-          = f.select :frequency_unit, Goalie::DateUtil::TIME_UNITS, {}, id: 'frequency-unit-select', class: 'frequency-unit-field table-input'
-        %td.text-center
-          .input-append
-            = f.text_field :start, {value: Time.zone.today.to_s(:db), class: 'date-field table-input'}
-            %label.add-on.table-input{for: 'goal_start'}
-              %i.icon-calendar
-        %td.text-center
-          .input-append
-            = f.text_field :end, {value: (Time.zone.today + 1.month).to_s(:db), class: 'date-field table-input'}
-            %label.add-on.table-input{for: 'goal_end'}
-              %i.icon-calendar
-        %td.text-center#status-field -
+  .view-edit-pair
+    = form_for goal, html: {class: 'no-margins edit-goal-table hidden'} do |f|
+      %table{class: 'table table-condensed table-striped table-bordered no-bottom-margin'}
+        %tr.edit-goal-row
+          %td.text-center.action-cell
+            = f.text_field :action, {class: 'action-field table-input'}
+          %td.text-center.goal-quantity-cell
+            = f.text_field :quantity, {class: 'goal-quantity-field table-input'}
+          %td.text-center.unit-cell
+            = f.text_field :unit, {class: 'unit-field table-input'}
+          %td.text-center.frequency-cell
+            = f.text_field :frequency, {class: 'frequency-field table-input'}
+          %td.text-center.times-a-cell#times-a-field times a
+          %td.text-center.frequency-unit-cell
+            = f.select :frequency_unit, Goalie::DateUtil::TIME_UNITS, {}, id: 'frequency-unit-select', class: 'frequency-unit-field table-input'
+          %td.text-center.date-cell
+            .input-append
+              = f.text_field :start, {value: Time.zone.today.to_s(:db), class: 'date-field table-input'}
+              %label.add-on.table-input{for: 'goal_start'}
+                %i.icon-calendar
+          %td.text-center.date-cell
+            .input-append
+              = f.text_field :end, {value: (Time.zone.today + 1.month).to_s(:db), class: 'date-field table-input'}
+              %label.add-on.table-input{for: 'goal_end'}
+                %i.icon-calendar
+          %td.text-center.status-cell#status-field -
+          %td.text-center.actions-cell
+            = link_to "<i class='icon-list'></i>".html_safe, goal_logs_url(goal), title: 'View Logs for this Goal', class: 'goal-action-icon'
+            = link_to "<i class='icon-ok'></i>".html_safe, edit_goal_path(goal), title: 'Save this Goal', class: 'goal-action-icon'
+            = link_to "<i class='icon-remove'></i>".html_safe, goal, :method => :delete, :data => { :confirm => 'Are you sure?' }, title: 'Delete this Goal', class: 'goal-action-icon'
+
+    %table{class: 'view-goal-table table table-condensed table-striped table-bordered no-bottom-margin plain-top'}
+      %tr.view-goal-row
+        %td.text-center.action-cell= goal.action
+        %td.text-center.goal-quantity-cell= goalie_number(goal.quantity)
+        %td.text-center.unit-cell= goal.unit
+        %td.text-center.frequency-cell= goalie_number(goal.frequency)
+        %td.text-center.times-a-cell= 'times a'
+        %td.text-center.frequency-unit-cell= goal.frequency_unit
+        %td.text-center.date-cell= goal.start
+        %td.text-center.date-cell= goal.end
+        %td.text-center.status-cell
+          - if goal.on_target
+            %span.label.label-success Passing
+          - else
+            %span.label.label-important Failing
         %td.text-center.actions-cell
           = link_to "<i class='icon-list'></i>".html_safe, goal_logs_url(goal), title: 'View Logs for this Goal', class: 'goal-action-icon'
-          = link_to "<i class='icon-ok'></i>".html_safe, edit_goal_path(goal), title: 'Edit this Goal', class: 'goal-action-icon'
+          %a{title: 'Edit this Goal', class: 'goal-action-icon edit-goal-link', href:'#'}
+            %i{class: 'icon-pencil'}
           = link_to "<i class='icon-remove'></i>".html_safe, goal, :method => :delete, :data => { :confirm => 'Are you sure?' }, title: 'Delete this Goal', class: 'goal-action-icon'
-
-  %table{class: 'table table-condensed table-striped table-bordered no-bottom-margin plain-top'}
-    %tr.view-goal-row
-      %td.text-center.action-cell= goal.action
-      %td.text-center.goal-quantity-cell= goalie_number(goal.quantity)
-      %td.text-center.unit-cell= goal.unit
-      %td.text-center.frequency-cell= goalie_number(goal.frequency)
-      %td.text-center.times-a-cell= 'times a'
-      %td.text-center.frequency-unit-cell= goal.frequency_unit
-      %td.text-center.date-cell= goal.start
-      %td.text-center.date-cell= goal.end
-      %td.text-center.status-cell
-        - if goal.on_target
-          %span.label.label-success Passing
-        - else
-          %span.label.label-important Failing
-      %td.text-center.actions-cell
-        = link_to "<i class='icon-list'></i>".html_safe, goal_logs_url(goal), title: 'View Logs for this Goal', class: 'goal-action-icon'
-        %a{title: 'Edit this Goal', class: 'goal-action-icon edit-goal-link', href:'#'}
-          %i{class: 'icon-pencil'}
-        = link_to "<i class='icon-remove'></i>".html_safe, goal, :method => :delete, :data => { :confirm => 'Are you sure?' }, title: 'Delete this Goal', class: 'goal-action-icon'
