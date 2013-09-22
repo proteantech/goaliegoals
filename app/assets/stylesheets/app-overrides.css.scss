@@ -18,3 +18,25 @@
     color: #555555;
   }
 }
+
+.hidden {
+  display: none;
+}
+
+.no-bottom-margin {
+  margin-bottom: 0px;
+}
+
+.no-top-border {
+  border-top: none;
+}
+
+.plain-top {
+  border-top: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.table-bordered {
+  border-collapse: collapse;
+}
