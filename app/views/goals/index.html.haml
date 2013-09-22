@@ -47,7 +47,7 @@
 
 - @goals.each do |goal|
   .view-edit-pair
-    = form_for goal, html: {class: 'no-margins edit-goal-table hidden'} do |f|
+    = form_for goal, html: {class: 'no-margins edit-goal-form hidden'} do |f|
       %table{class: 'table table-condensed table-striped table-bordered no-bottom-margin'}
         %tr.edit-goal-row
           %td.text-center.action-cell
@@ -74,7 +74,7 @@
           %td.text-center.status-cell#status-field -
           %td.text-center.actions-cell
             = link_to "<i class='icon-list'></i>".html_safe, goal_logs_url(goal), title: 'View Logs for this Goal', class: 'goal-action-icon'
-            = link_to "<i class='icon-ok'></i>".html_safe, edit_goal_path(goal), title: 'Save this Goal', class: 'goal-action-icon'
+            = link_to "<i class='icon-ok'></i>".html_safe, '#', title: 'Save this Goal', class: 'goal-action-icon goal-submit-link'
             = link_to "<i class='icon-remove'></i>".html_safe, goal, :method => :delete, :data => { :confirm => 'Are you sure?' }, title: 'Delete this Goal', class: 'goal-action-icon'
 
     %table{class: 'view-goal-table table table-condensed table-striped table-bordered no-bottom-margin plain-top'}
