@@ -46,7 +46,7 @@ class GoalsController < ApplicationController
 
     respond_to do |format|
       if @goal.save
-        format.html { redirect_to :index, notice: 'Goal was successfully created.' }
+        format.html { redirect_to action: 'index', notice: 'Goal was successfully created.' }
         format.json { render json: @goal, status: :created, location: @goal }
       else
         format.html { render action: 'index' }
