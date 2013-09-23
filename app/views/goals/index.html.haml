@@ -2,8 +2,6 @@
 
 = render partial: 'errors'
 
-
-
 %table{class: 'table table-condensed table-striped table-bordered table-header-standalone'}
   %tr
     %th.text-center.action-cell#action-header Action
@@ -17,7 +15,10 @@
     %th.text-center.status-cell Status
     %th.text-center.actions-cell#actions-header Actions
 
-= form_for @goal, html: {class: 'no-margins'} do |f|
+-# We use a new goal if there's an update in progress.
+- formGoal = @goal
+- formGoal = Goal.new if @goal.id
+= form_for formGoal, html: {class: 'no-margins'} do |f|
   %table{class: 'table table-condensed table-striped table-bordered no-bottom-margin'}
     %tr
       %td.text-center.action-cell
@@ -47,7 +48,12 @@
 
 - @goals.each do |goal|
   .view-edit-pair
-    = form_for goal, html: {class: 'no-margins edit-goal-form hidden'} do |f|
+    -# Show the goal if it's being edited
+    - goalClasses = 'no-margins edit-goal-form hidden'
+    - if goal.id == @goal.id
+      - goalClasses = 'no-margins edit-goal-form'
+      - goal = @goal
+    = form_for goal, html: {class: goalClasses} do |f|
       %table{class: 'table table-condensed table-bordered no-bottom-margin plain-top'}
         %tr.edit-goal-row
           %td.text-center.action-cell

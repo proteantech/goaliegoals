@@ -32,14 +32,10 @@ class Goal < ActiveRecord::Base
   end
 
   def per_diem
+    return 0 if !quantity || quantity == 0
     freq_unit_days = Goalie::DateUtil::UNIT_TO_DAYS[frequency_unit.downcase.to_sym]
-    p "freq_unit_days #{freq_unit_days}"
     freq_in_days = freq_unit_days / frequency
-    p "freq_in_days #{freq_in_days}"
-
     per_diem = quantity / freq_in_days
-    p "per_diem #{per_diem}"
-    per_diem
   end
 
   def log_sum

@@ -2,7 +2,7 @@ class GoalsController < ApplicationController
   # GET /goals
   # GET /goals.json
   def index
-    @goals = current_user.goals.order('start DESC')
+    @goals = goals_for_current_user
     @goal = Goal.new
     respond_to do |format|
       format.html # index.html.erb
@@ -46,7 +46,7 @@ class GoalsController < ApplicationController
 
     respond_to do |format|
       if @goal.save
-        format.html { redirect_to :back, notice: 'Goal was successfully created.' }
+        format.html { redirect_to :index, notice: 'Goal was successfully created.' }
         format.json { render json: @goal, status: :created, location: @goal }
       else
         format.html { render action: 'index' }
@@ -83,6 +83,7 @@ class GoalsController < ApplicationController
         format.html { redirect_to goals_url, notice: 'Goal was successfully updated.' }
         format.json { head :no_content }
       else
+        @goals = goals_for_current_user
         format.html { render action: "index" }
         format.json { render json: @goal.errors, status: :unprocessable_entity }
       end
@@ -100,4 +101,11 @@ class GoalsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+private
+
+  def goals_for_current_user
+    @goals = current_user.goals.order('start DESC')
+  end
+
 end
