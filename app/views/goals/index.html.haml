@@ -54,7 +54,7 @@
       - goalClasses = 'no-margins edit-goal-form'
       - goal = @goal
     = form_for goal, html: {class: goalClasses} do |f|
-      %table{class: 'table table-condensed table-bordered no-bottom-margin plain-top'}
+      %table{class: 'table table-condensed  table-striped table-bordered no-bottom-margin plain-top'}
         %tr.edit-goal-row
           %td.text-center.action-cell
             = f.text_field :action, {class: 'action-field table-input'}
@@ -83,7 +83,7 @@
             = link_to "<i class='icon-ok'></i>".html_safe, '#', title: 'Save this Goal', class: 'goal-action-icon goal-submit-link'
             = link_to "<i class='icon-remove'></i>".html_safe, goal, :method => :delete, :data => { :confirm => 'Are you sure?' }, title: 'Delete this Goal', class: 'goal-action-icon'
 
-    %table{class: 'view-goal-table table table-condensed table-bordered no-bottom-margin plain-top'}
+    %table{class: 'view-goal-table table table-condensed  table-striped table-bordered no-bottom-margin plain-top'}
       %tr.view-goal-row
         %td.text-center.action-cell= goal.action
         %td.text-center.goal-quantity-cell= goalie_number(goal.quantity)
