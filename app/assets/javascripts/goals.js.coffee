@@ -6,11 +6,11 @@ $(() ->
   $('#goal_end').datepicker({dateFormat: 'yy-mm-dd'})
   $('.edit-goal-link').click( (eventObject) ->
     $(this).parents('.view-goal-table').hide()
-    $($($(this).parents('.view-edit-pair')[0]).children('.edit-goal-form')[0]).show()
+    $(this).parents('.view-edit-pair').children('.edit-goal-form').show()
     return
   )
   $('.goal-submit-link').click( (eventObject) ->
-    $(this).parents('.edit-goal-form')[0].submit()
+    $(this).parents('.edit-goal-form').submit()
     return
   )
   return
