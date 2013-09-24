@@ -83,23 +83,24 @@
             = link_to "<i class='icon-ok'></i>".html_safe, '#', title: 'Save this Goal', class: 'goal-action-icon goal-submit-link'
             = link_to "<i class='icon-remove'></i>".html_safe, goal, :method => :delete, :data => { :confirm => 'Are you sure?' }, title: 'Delete this Goal', class: 'goal-action-icon'
 
-    %table{class: 'view-goal-table table table-condensed  table-striped table-bordered no-bottom-margin plain-top'}
-      %tr.view-goal-row
-        %td.text-center.action-cell= goal.action
-        %td.text-center.goal-quantity-cell= goalie_number(goal.quantity)
-        %td.text-center.unit-cell= goal.unit
-        %td.text-center.frequency-cell= goalie_number(goal.frequency)
-        %td.text-center.times-a-cell= 'times a'
-        %td.text-center.frequency-unit-cell= goal.frequency_unit
-        %td.text-center.date-cell= goal.start
-        %td.text-center.date-cell= goal.end
-        %td.text-center.status-cell
-          - if goal.on_target
-            %span.label.label-success Passing
-          - else
-            %span.label.label-important Failing
-        %td.text-center.actions-cell
-          = link_to "<i class='icon-list'></i>".html_safe, goal_logs_url(goal), title: 'View Logs for this Goal', class: 'goal-action-icon'
-          %a{title: 'Edit this Goal', class: 'goal-action-icon edit-goal-link', href:'#'}
-            %i{class: 'icon-pencil'}
-          = link_to "<i class='icon-remove'></i>".html_safe, goal, :method => :delete, :data => { :confirm => 'Are you sure?' }, title: 'Delete this Goal', class: 'goal-action-icon'
+    - unless goal.id == @goal.id
+      %table{class: 'view-goal-table table table-condensed table-striped table-bordered no-bottom-margin plain-top'}
+        %tr.view-goal-row
+          %td.text-center.action-cell= goal.action
+          %td.text-center.goal-quantity-cell= goalie_number(goal.quantity)
+          %td.text-center.unit-cell= goal.unit
+          %td.text-center.frequency-cell= goalie_number(goal.frequency)
+          %td.text-center.times-a-cell= 'times a'
+          %td.text-center.frequency-unit-cell= goal.frequency_unit
+          %td.text-center.date-cell= goal.start
+          %td.text-center.date-cell= goal.end
+          %td.text-center.status-cell
+            - if goal.on_target
+              %span.label.label-success Passing
+            - else
+              %span.label.label-important Failing
+          %td.text-center.actions-cell
+            = link_to "<i class='icon-list'></i>".html_safe, goal_logs_url(goal), title: 'View Logs for this Goal', class: 'goal-action-icon'
+            %a{title: 'Edit this Goal', class: 'goal-action-icon edit-goal-link', href:'#'}
+              %i{class: 'icon-pencil'}
+            = link_to "<i class='icon-remove'></i>".html_safe, goal, :method => :delete, :data => { :confirm => 'Are you sure?' }, title: 'Delete this Goal', class: 'goal-action-icon'
