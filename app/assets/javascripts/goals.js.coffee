@@ -7,6 +7,7 @@ $(() ->
   $('.edit-goal-link').click( (eventObject) ->
     $(this).parents('.view-goal-table').hide()
     $(this).parents('.view-edit-pair').children('.edit-goal-form').show()
+    $('.icon-pencil').hide()
     return false
   )
   $('.goal-submit-link').click( (eventObject) ->
