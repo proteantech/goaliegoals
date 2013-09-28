@@ -59,11 +59,11 @@
           %td.text-center.action-cell
             = f.text_field :action, {class: 'action-field table-input'}
           %td.text-center.goal-quantity-cell
-            = f.text_field :quantity, {class: 'goal-quantity-field table-input'}
+            = f.text_field :quantity, {value: goalie_number(goal.quantity), class: 'goal-quantity-field table-input'}
           %td.text-center.unit-cell
             = f.text_field :unit, {class: 'unit-field table-input'}
           %td.text-center.frequency-cell
-            = f.text_field :frequency, {class: 'frequency-field table-input'}
+            = f.text_field :frequency, {value: goalie_number(goal.frequency), class: 'frequency-field table-input'}
           %td.text-center.times-a-cell#times-a-field times a
           %td.text-center.frequency-unit-cell
             = f.select :frequency_unit, Goalie::DateUtil::TIME_UNITS, {}, id: 'frequency-unit-select', class: 'frequency-unit-field table-input'
