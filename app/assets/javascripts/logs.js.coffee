@@ -3,4 +3,15 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $(() ->
   $('#log_log_date').datepicker({dateFormat: 'yy-mm-dd'})
+  $('.edit-log-link').click( (eventObject) ->
+    $(this).parents('.view-log-table').hide()
+    $(this).parents('.log-pair').children('.edit-log-form').show()
+    $('.icon-pencil').hide()
+    return false
+  )
+  $('.log-submit-link').click( (eventObject) ->
+    $(this).parents('.edit-log-form').submit()
+    return
+  )
+  return
 )

@@ -38,32 +38,62 @@
 
 = render partial: 'errors'
 
-%table{class: 'table table-condensed table-striped table-bordered'}
+%table{class: 'table table-condensed table-striped table-bordered table-header-standalone'}
   %tr
     %th.text-center.date-column Log Date
     %th.text-center.quantity-column Quantity
     %th.text-center.description-column Description
     %th.text-center Actions
 
-  %tr
-    = form_for [@goal, @log], html: {class: 'no-margins'} do |f|
-      %td
+- formLog = @log
+- formLog = Log.new if @goal.id
+- formLog.goal = @goal
+= form_for [@goal, formLog], html: {class: 'no-margins'} do |f|
+  %table{class: 'table table-condensed table-striped table-bordered no-bottom-margin'}
+    %tr
+      %td.date-column
         .input-append
           = f.text_field :log_date, {value: Time.zone.today.to_s(:db), class: 'date-field table-input'}
           %label.add-on.table-input{for: 'log_log_date'}
             %i.icon-calendar
-      %td.text-center
+      %td.text-center.quantity-column
         = f.text_field :quantity, {class: 'quantity-field table-input'}
-      %td
+      %td.description-column
         = f.text_field :description, {class: 'description-field table-input'}
-      %td.text-center
+      %td.text-center.actions-column
         %button.btn.btn-primary Add
 
-  - @logs.each do |log|
-    %tr
-      %td.text-center.date-column= log.log_date
-      %td.text-center.quantity-column= goalie_number(log.quantity)
-      %td.description-column= log.description.blank? ? '' : log.description
-      %td.text-center
-        = link_to "<i class='icon-pencil'></i>".html_safe, edit_goal_log_path(@goal, log), title: 'Edit this Goal', class: 'goal-action-icon'
-        = link_to "<i class='icon-remove'></i>".html_safe, [@goal, log], :method => :delete, :data => { :confirm => 'Are you sure?' },  title: 'Delete this Goal', class: 'goal-action-icon'
+- @logs.each do |log|
+  .log-pair
+    -# Show the log if it's being edited
+    - logClasses = 'no-margins edit-log-form hidden'
+    - if log.id == @log.id
+      - logClasses = 'no-margins edit-log-form'
+      - log = @log
+    = form_for [@goal, log], html: {class: logClasses} do |f|
+      %table.edit-log-table{class: 'table table-condensed  table-striped table-bordered no-bottom-margin plain-top'}
+        %tr
+          = f.hidden_field :id
+          %td.date-column
+            .input-append
+              = f.text_field :log_date, {value: Time.zone.today.to_s(:db), class: 'date-field log-edit'}
+              %label.add-on.table-input{for: 'log_log_date'}
+                %i.icon-calendar
+          %td.quantity-column
+            = f.text_field :quantity, value: goalie_number(log.quantity), class: 'quantity-field table-input'
+          %td.description-column
+            = f.text_field :description, class: 'description-field table-input'
+          %td.text-center.actions-column
+            = link_to "<i class='icon-ok'></i>".html_safe, '#', title: 'Save this Log Entry', class: 'goalie-action-icon log-submit-link'
+            = link_to "<i class='icon-remove'></i>".html_safe, [@goal, log], :method => :delete, :data => { :confirm => 'Are you sure?' },  title: 'Delete this Log Entry', class: 'goalie-action-icon'
+
+    - unless log.id == @log.id
+      %table{class: 'view-log-table table table-condensed table-striped table-bordered no-bottom-margin plain-top'}
+        %tr
+          %td.text-center.date-column= log.log_date
+          %td.text-center.quantity-column= goalie_number(log.quantity)
+          %td.text-center.description-column= log.description.blank? ? '-' : log.description
+          %td.text-center.actions-column
+            = link_to "<i class='icon-pencil'></i>".html_safe, edit_goal_log_path(@goal, log), title: 'Edit this Log Entry', class: 'goalie-action-icon edit-log-link'
+            = link_to "<i class='icon-remove'></i>".html_safe, [@goal, log], :method => :delete, :data => { :confirm => 'Are you sure?' },  title: 'Delete this Log Entry', class: 'goalie-action-icon'
+

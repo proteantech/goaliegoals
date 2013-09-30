@@ -89,13 +89,14 @@ class LogsController < ApplicationController
   # PUT /logs/1.json
   def update
     @log = Log.find(params[:id])
+    @logs = @goal.logs
 
     respond_to do |format|
       if @log.update_attributes(params[:log])
-        format.html { redirect_to [@goal, @log], notice: 'Log was successfully updated.' }
+        format.html { redirect_to goal_logs_url(@goal), notice: 'Log was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render action: 'index' }
         format.json { render json: @log.errors, status: :unprocessable_entity }
       end
     end
