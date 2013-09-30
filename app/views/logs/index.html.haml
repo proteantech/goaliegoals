@@ -76,8 +76,8 @@
           = f.hidden_field :id
           %td.date-column
             .input-append
-              = f.text_field :log_date, {value: Time.zone.today.to_s(:db), class: 'date-field log-edit'}
-              %label.add-on.table-input{for: 'log_log_date'}
+              = f.text_field :log_date, {id: "log_log_date_#{log.id}", value: Time.zone.today.to_s(:db), class: 'date-field table-input'}
+              %label.add-on.table-input{for: "log_log_date_#{log.id}"}
                 %i.icon-calendar
           %td.quantity-column
             = f.text_field :quantity, value: goalie_number(log.quantity), class: 'quantity-field table-input'

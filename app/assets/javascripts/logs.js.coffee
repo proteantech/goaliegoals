@@ -2,7 +2,10 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $(() ->
-  $('#log_log_date').datepicker({dateFormat: 'yy-mm-dd'})
+  $('.date-field').each( () ->
+    $(this).datepicker({ dateFormat: 'yy-mm-dd' })
+    return
+  )
   $('.edit-log-link').click( (eventObject) ->
     $(this).parents('.view-log-table').hide()
     $(this).parents('.log-pair').children('.edit-log-form').show()

@@ -2,8 +2,10 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $(() ->
-  $('#goal_start').datepicker({dateFormat: 'yy-mm-dd'})
-  $('#goal_end').datepicker({dateFormat: 'yy-mm-dd'})
+  $('.date-field').each( () ->
+    $(this).datepicker({ dateFormat: 'yy-mm-dd' })
+    return
+  )
   $('.edit-goal-link').click( (eventObject) ->
     $(this).parents('.view-goal-table').hide()
     $(this).parents('.view-edit-pair').children('.edit-goal-form').show()
