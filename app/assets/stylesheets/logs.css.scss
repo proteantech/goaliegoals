@@ -56,9 +56,13 @@
   position: relative;
 }
 
-.date-field {
-  width: 94px;
-  height: 30px !important;
+#log-date-header {
+  border-top-left-radius: 4px !important;
+}
+
+.log-date-cell {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
 }
 
 .quantity-column {
