@@ -3,12 +3,12 @@
 - if @goal.on_target
   .alert.alert-success.text-center
     On Target to Achieve Goal:
-    = link_to(edit_goal_path(@goal), class: 'goal-link') do
+    = link_to(goals_path, class: 'goal-link') do
       #{@goal.to_s}
 - else
   .alert.alert-error.text-center
     Failing to Achieve Goal:
-    = link_to(edit_goal_path(@goal), class: 'goal-link') do
+    = link_to(goals_path, class: 'goal-link') do
       #{@goal.to_s}
 
 
