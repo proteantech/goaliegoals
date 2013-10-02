@@ -36,3 +36,15 @@
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.date-cell {
+  width: 123px;
+}
+
+.date-field {
+  height: 30px !important;
+}
+
+td.date-cell .field_with_errors {
+  float: left;
+}

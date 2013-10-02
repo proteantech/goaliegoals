@@ -40,7 +40,7 @@
 
 %table{class: 'table table-condensed table-striped table-bordered table-header-standalone'}
   %tr
-    %th.text-center.date-column Log Date
+    %th.text-center.date-cell Log Date
     %th.text-center.quantity-column Quantity
     %th.text-center.description-column Description
     %th.text-center Actions
@@ -51,7 +51,7 @@
 = form_for [@goal, formLog], html: {class: 'no-margins'} do |f|
   %table{class: 'table table-condensed table-striped table-bordered no-bottom-margin'}
     %tr
-      %td.date-column
+      %td.text-center.date-cell
         .input-append
           = f.text_field :log_date, {value: Time.zone.today.to_s(:db), class: 'date-field table-input'}
           %label.add-on.table-input{for: 'log_log_date'}
@@ -74,7 +74,7 @@
       %table.edit-log-table{class: 'table table-condensed  table-striped table-bordered no-bottom-margin plain-top'}
         %tr
           = f.hidden_field :id
-          %td.date-column
+          %td.text-center.date-cell
             .input-append
               = f.text_field :log_date, {id: "log_log_date_#{log.id}", value: Time.zone.today.to_s(:db), class: 'date-field table-input'}
               %label.add-on.table-input{for: "log_log_date_#{log.id}"}
@@ -90,7 +90,7 @@
     - unless log.id == @log.id
       %table{class: 'view-log-table table table-condensed table-striped table-bordered no-bottom-margin plain-top'}
         %tr
-          %td.text-center.date-column= log.log_date
+          %td.text-center.date-cell= log.log_date
           %td.text-center.quantity-column= goalie_number(log.quantity)
           %td.text-center.description-column= log.description.blank? ? '-' : log.description
           %td.text-center.actions-column
