@@ -9,7 +9,7 @@ $(() ->
   $('.edit-log-link').click( (eventObject) ->
     $(this).parents('.view-log-table').hide()
     $(this).parents('.view-edit-pair').children('.edit-log-form').show()
-    $('.icon-pencil').hide()
+    $('.icon-pencil').css('visibility', 'hidden')
     return false
   )
   $('.log-submit-link').click( (eventObject) ->
