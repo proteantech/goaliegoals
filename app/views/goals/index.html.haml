@@ -69,12 +69,12 @@
             = f.select :frequency_unit, Goalie::DateUtil::TIME_UNITS, {}, id: 'frequency-unit-select', class: 'frequency-unit-field table-input'
           %td.text-center.date-cell
             .input-append
-              = f.text_field :start, {id: "goal_start_#{goal.id}", value: Time.zone.today.to_s(:db), class: 'date-field table-input'}
+              = f.text_field :start, {id: "goal_start_#{goal.id}", class: 'date-field table-input'}
               %label.add-on.table-input{for: "goal_start_#{goal.id}"}
                 %i.icon-calendar
           %td.text-center.date-cell
             .input-append
-              = f.text_field :end, {id: "goal_end_#{goal.id}", value: (Time.zone.today + 1.month).to_s(:db), class: 'date-field table-input'}
+              = f.text_field :end, {id: "goal_end_#{goal.id}", class: 'date-field table-input'}
               %label.add-on.table-input{for: "goal_end_#{goal.id}"}
                 %i.icon-calendar
           %td.text-center.status-cell#status-field -
