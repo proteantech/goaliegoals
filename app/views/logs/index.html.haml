@@ -40,7 +40,7 @@
 
 %table{class: 'table table-condensed table-striped table-bordered table-header-standalone'}
   %tr
-    %th.text-center.date-cell.log-date-header Log Date
+    %th.text-center.date-cell#log-date-header.log-date-cell Log Date
     %th.text-center.quantity-column Quantity
     %th.text-center.description-column Description
     %th.text-center Actions
@@ -60,11 +60,11 @@
         = f.text_field :quantity, {class: 'quantity-field table-input'}
       %td.description-column
         = f.text_field :description, {class: 'description-field table-input'}
-      %td.text-center.actions-column
+      %td.text-center.actions-cell
         %button.btn.btn-primary Add
 
 - @logs.each do |log|
-  .log-pair
+  .view-edit-pair
     -# Show the log if it's being edited
     - logClasses = 'no-margins edit-log-form hidden'
     - if log.id == @log.id
@@ -83,7 +83,7 @@
             = f.text_field :quantity, value: goalie_number(log.quantity), class: 'quantity-field table-input'
           %td.description-column
             = f.text_field :description, class: 'description-field table-input'
-          %td.text-center.actions-column
+          %td.text-center.actions-cell
             = link_to "<i class='icon-ok'></i>".html_safe, '#', title: 'Save this Log Entry', class: 'goalie-action-icon log-submit-link'
             = link_to "<i class='icon-remove'></i>".html_safe, [@goal, log], :method => :delete, :data => { :confirm => 'Are you sure?' },  title: 'Delete this Log Entry', class: 'goalie-action-icon'
 
@@ -93,7 +93,7 @@
           %td.text-center.date-cell.log-date-cell= log.log_date
           %td.text-center.quantity-column= goalie_number(log.quantity)
           %td.text-center.description-column= log.description.blank? ? '-' : log.description
-          %td.text-center.actions-column
+          %td.text-center.actions-cell
             = link_to "<i class='icon-pencil'></i>".html_safe, edit_goal_log_path(@goal, log), title: 'Edit this Log Entry', class: 'goalie-action-icon edit-log-link'
             = link_to "<i class='icon-remove'></i>".html_safe, [@goal, log], :method => :delete, :data => { :confirm => 'Are you sure?' },  title: 'Delete this Log Entry', class: 'goalie-action-icon'
 

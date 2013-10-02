@@ -49,3 +49,19 @@
 td.date-cell .field_with_errors {
   float: left;
 }
+
+#actions-header {
+  border-top-right-radius: 4px !important;
+}
+
+.view-edit-pair:last-of-type .action-cell {
+  border-bottom-left-radius: 4px !important;
+}
+
+.view-edit-pair:last-of-type .actions-cell {
+  border-bottom-right-radius: 4px !important;
+}
+.actions-cell {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}

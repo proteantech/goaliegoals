@@ -8,7 +8,7 @@ $(() ->
   )
   $('.edit-log-link').click( (eventObject) ->
     $(this).parents('.view-log-table').hide()
-    $(this).parents('.log-pair').children('.edit-log-form').show()
+    $(this).parents('.view-edit-pair').children('.edit-log-form').show()
     $('.icon-pencil').hide()
     return false
   )

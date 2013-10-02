@@ -65,6 +65,10 @@
   border-bottom-left-radius: 0 !important;
 }
 
+.view-edit-pair:last-of-type .log-date-cell {
+  border-bottom-left-radius: 4px !important;
+}
+
 .quantity-column {
   width: 121px;
 }
