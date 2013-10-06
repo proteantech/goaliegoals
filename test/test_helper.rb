@@ -18,6 +18,8 @@ require 'capybara/rails'
 class ActionDispatch::IntegrationTest
   # Make the Capybara DSL available in all integration tests
   include Capybara::DSL
+
+  Capybara.default_driver = :selenium
 end
 
 require 'minitest/reporters'

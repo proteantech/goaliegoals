@@ -6,8 +6,8 @@
 #
 one:
   name: user
-  email: email@gmail.com
-#  password: pass
+  email: test@gmail.com
+  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
 #  password_confirmation: pass
 #  remember_me: true
 
