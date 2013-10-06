@@ -15,5 +15,18 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
     assert page.has_content?('Listing Goals')
     assert page.has_content?('Signed in successfully.')
 
+    fill_in 'goal_action', with: 'action1'
+    fill_in 'goal_quantity', with: '1'
+    fill_in 'goal_unit', with: 'unit1'
+    fill_in 'goal_frequency', with: '1'
+    select 'day', from: 'frequency-unit-select'
+    fill_in 'goal_start', with: '2013-10-06'
+    fill_in 'goal_end', with: '2013-10-07'
+    click_on 'Add'
+
+    assert page.has_content? 'Goal was successfully created.'
+    assert page.has_content? '2013-10-06'
+    assert page.has_content? '2013-10-07'
+
   end
 end
