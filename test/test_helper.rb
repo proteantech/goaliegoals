@@ -13,3 +13,12 @@ class ActiveSupport::TestCase
 end
 
 require "mocha/setup"
+
+require 'capybara/rails'
+class ActionDispatch::IntegrationTest
+  # Make the Capybara DSL available in all integration tests
+  include Capybara::DSL
+end
+
+require 'minitest/reporters'
+MiniTest::Reporters.use!

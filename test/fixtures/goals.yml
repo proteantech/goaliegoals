@@ -5,7 +5,7 @@ books_2_per_month:
   quantity: 2
   unit: books
   frequency: 2
-  frequency_unit: Month
+  frequency_unit: month
   start: 2013-04-1
   end: 2013-05-31
 
@@ -14,6 +14,6 @@ books_2_per_day:
   quantity: 2
   unit: books
   frequency: 1
-  frequency_unit: Day
+  frequency_unit: day
   start: 2013-04-1
   end: 2013-05-31
