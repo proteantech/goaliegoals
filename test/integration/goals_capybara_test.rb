@@ -12,10 +12,8 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
     fill_in 'user_password', with: 'password'
     click_on 'Sign in'
 
-    t = page.has_content?('Listing Goals')
-    assert t
+    assert page.has_content?('Listing Goals')
     assert page.has_content?('Signed in successfully.')
 
-    assert true
   end
 end
