@@ -54,35 +54,35 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
     assert page.has_content?('Listing Goals')
     assert page.has_content?('Signed in successfully.')
 
-    #fill_in 'goal_action',    with: 'action1'
-    #fill_in 'goal_quantity',  with: '1'
-    #fill_in 'goal_unit',      with: 'unit1'
-    #fill_in 'goal_frequency', with: '1'
-    #select 'day',             from: 'frequency-unit-select'
-    #fill_in 'goal_start',     with: '2000-12-03'
-    #fill_in 'goal_end',       with: '2000-12-04'
-    #click_on 'Add'
-    #
-    #assert page.has_content? 'Goal was successfully created.'
-    #assert page.has_content? 'action1'
-    #assert page.has_content? 'unit1'
-    #assert page.has_content? '2000-12-03'
-    #assert page.has_content? '2000-12-04'
-    #
-    #fill_in 'goal_action',    with: 'action2'
-    #fill_in 'goal_quantity',  with: '2'
-    #fill_in 'goal_unit',      with: 'unit2'
-    #fill_in 'goal_frequency', with: '2'
-    #select 'week',            from: 'frequency-unit-select'
-    #fill_in 'goal_start',     with: '2000-12-05'
-    #fill_in 'goal_end',       with: '2000-12-06'
-    #click_on 'Add'
-    #
-    #assert page.has_content? 'Goal was successfully created.'
-    #assert page.has_content? 'action2'
-    #assert page.has_content? 'unit2'
-    #assert page.has_content? '2000-12-05'
-    #assert page.has_content? '2000-12-06'
+    fill_in 'goal_action',    with: 'action1'
+    fill_in 'goal_quantity',  with: '1'
+    fill_in 'goal_unit',      with: 'unit1'
+    fill_in 'goal_frequency', with: '1'
+    select 'day',             from: 'frequency-unit-select'
+    fill_in 'goal_start',     with: '2000-12-03'
+    fill_in 'goal_end',       with: '2000-12-04'
+    click_on 'Add'
+
+    assert page.has_content? 'Goal was successfully created.'
+    assert page.has_content? 'action1'
+    assert page.has_content? 'unit1'
+    assert page.has_content? '2000-12-03'
+    assert page.has_content? '2000-12-04'
+
+    fill_in 'goal_action',    with: 'action2'
+    fill_in 'goal_quantity',  with: '2'
+    fill_in 'goal_unit',      with: 'unit2'
+    fill_in 'goal_frequency', with: '2'
+    select 'week',            from: 'frequency-unit-select'
+    fill_in 'goal_start',     with: '2000-12-05'
+    fill_in 'goal_end',       with: '2000-12-06'
+    click_on 'Add'
+
+    assert page.has_content? 'Goal was successfully created.'
+    assert page.has_content? 'action2'
+    assert page.has_content? 'unit2'
+    assert page.has_content? '2000-12-05'
+    assert page.has_content? '2000-12-06'
 
     # Check validation with no @fields filled in
     blank_dates_unless_should_pass
