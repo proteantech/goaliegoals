@@ -26,7 +26,7 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
         frequency: {
             message:      isNotNumber,
             should_pass:  false,
-            content:      '3333'
+            content:      '444'
         },
         start: {
             message:      cantBeBlank,
@@ -41,7 +41,7 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
     }
   end
 
-  test 'create goal' do
+  def login
     visit '/'
     click_on 'Login'
 
@@ -51,8 +51,13 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
     fill_in 'user_password', with: 'password'
     click_on 'Sign in'
 
-    assert page.has_content?('Listing Goals')
+    assert page.has_content?('Goals')
     assert page.has_content?('Signed in successfully.')
+  end
+
+  test 'create goal' do
+
+    login()
 
     fill_in 'goal_action',    with: 'action1'
     fill_in 'goal_quantity',  with: '1'
