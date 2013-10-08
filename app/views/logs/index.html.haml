@@ -11,17 +11,9 @@
     = link_to(goals_path, class: 'goal-link') do
       #{@goal.to_s}
 
-
-.row.log-timeline
-  .span 0 <
-  .span.log-arrow-line
-    %del #{("&nbsp;" * 300).html_safe}
-  .span.right-log-arrow
-    >
-  .span.text-right.scale-max
-    = "%g" % @goal.pass_minimum.round(2)
-
-%br
+.total-for-goal-div
+  Total Required to Achieve Goal:
+  %span.progress-unit #{goalie_number(@goal.pass_minimum.round(2))} #{@goal.unit}
 
 .progress.log
   .progress-label
