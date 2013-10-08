@@ -1,3 +1,5 @@
+@import "app-variables";
+
 #goalie-brand:hover {
   background-color: transparent;
   color: black;
@@ -6,7 +8,11 @@
 .navbar {
   width: 980px;
   margin: 0 auto;
+  ul, li {
+    font-size: $medium-font-size;
+  }
 }
+
 
 .full-width-wrapper {
   margin-bottom: 10px;

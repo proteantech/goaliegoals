@@ -1,21 +1,21 @@
+@import 'app-variables';
+
 body {
   background-color: #fff;
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-size: $small-font-size;
   line-height: 18px;
 }
 
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
   line-height: 18px;
+  font-size: $small-font-size;
 }
 
 pre {
   background-color: #eee;
   padding: 10px;
-  font-size: 11px;
+  font-size: $small-font-size;
 }
 
 a {
@@ -63,7 +63,7 @@ div {
     color: #fff;
   }
   ul li {
-    font-size: 12px;
+    font-size: $medium-font-size;
     list-style: square;
   }
 }

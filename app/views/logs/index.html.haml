@@ -1,4 +1,4 @@
-%h1.index_header Listing Logs
+%h1.index_header Logs
 
 - if @goal.on_target
   .alert.alert-success.text-center
@@ -43,7 +43,7 @@
     %th.text-center.date-cell#log-date-header.log-date-cell Log Date
     %th.text-center.quantity-column Quantity
     %th.text-center.description-column Description
-    %th.text-center Actions
+    %th.text-center.actions-cell#actions-header Actions
 
 - formLog = @log
 - formLog = Log.new if @goal.id
@@ -58,7 +58,7 @@
             %i.icon-calendar
       %td.text-center.quantity-column
         = f.text_field :quantity, {class: 'quantity-field table-input'}
-      %td.description-column
+      %td.text-center.description-column
         = f.text_field :description, {class: 'description-field table-input'}
       %td.text-center.actions-cell
         %button.btn.btn-primary Add
@@ -79,9 +79,9 @@
               = f.text_field :log_date, {id: "log_log_date_#{log.id}", class: 'date-field table-input'}
               %label.add-on.table-input{for: "log_log_date_#{log.id}"}
                 %i.icon-calendar
-          %td.quantity-column
+          %td.text-center.quantity-column
             = f.text_field :quantity, value: goalie_number(log.quantity), class: 'quantity-field table-input'
-          %td.description-column
+          %td.text-center.description-column
             = f.text_field :description, class: 'description-field table-input'
           %td.text-center.actions-cell
             = link_to "<i class='icon-ok'></i>".html_safe, '#', title: 'Save this Log Entry', class: 'goalie-action-icon log-submit-link'
