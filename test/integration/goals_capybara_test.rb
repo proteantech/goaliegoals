@@ -74,7 +74,11 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
     assert !find(:xpath, "(//a[contains(@class, 'goal-submit-link')])[1]", visible: false).visible?
     find(:xpath, "(//a[contains(@class, 'edit-goal-link')])[1]").click
     assert find('.goal-submit-link').visible?
-
+    within(:xpath, "(//tr[.//input[@name='goal[action]']])[2]") do
+      fill_in('goal[action]', with: '')
+    end
+    find('.goal-submit-link').click
+    assert page.has_content? "1 error prohibited this goal from being saved:"
   end
 
 
