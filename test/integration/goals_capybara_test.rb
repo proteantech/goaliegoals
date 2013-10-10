@@ -71,16 +71,30 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
 
     submit_all_blank_and_validate()
 
+    # Open Goal for Editing
     assert !find(:xpath, "(//a[contains(@class, 'goal-submit-link')])[1]", visible: false).visible?
     find(:xpath, "(//a[contains(@class, 'edit-goal-link')])[1]").click
     assert find('.goal-submit-link').visible?
+
+    # Save and verify validation error
     within(:xpath, "(//tr[.//input[@name='goal[action]']])[2]") do
       fill_in('goal[action]', with: '')
+      find('.goal-submit-link').click
     end
-    find('.goal-submit-link').click
     assert page.has_content? "1 error prohibited this goal from being saved:"
-  end
 
+    # Fill Goal in edit and Save
+    goal_in_edit = all(:xpath, "(//tr[.//input[@name='goal[action]']])")[1]
+    within goal_in_edit do
+      fill_in('goal[action]', with: 'edit_goal_text')
+      find('.goal-submit-link').click
+    end
+
+    # Verify Successful Modification
+    assert page.has_content? 'Goal was successfully updated.'
+    assert page.has_content? 'edit_goal_text'
+
+  end
 
   def login
     visit '/'
