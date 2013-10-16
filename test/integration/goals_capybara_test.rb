@@ -85,7 +85,7 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
     end
     assert find('.goal-submit-link')
 
-    # Save and verify validation error
+    # Save and verify validation error for missing action field
     within(:xpath, "(//tr[.//input[@name='goal[action]']])[2]") do
       assert find(:xpath, ".//input[@name='goal[action]' and @value='action2']")
       fill_in('goal[action]', with: '')
@@ -104,7 +104,32 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
     assert page.has_content? 'Goal was successfully updated.'
     assert page.has_content? 'edit_goal_text'
 
+    # Open Goal for Editing
+    within(:xpath, "(//tr[.//a[contains(@class, 'goal-edit-link')]])[1]") do
+      find(:xpath, ".//td[text()='edit_goal_text']")
+      find(:xpath, ".//a[contains(@class, 'goal-edit-link')]").click
+    end
+    assert find('.goal-submit-link')
 
+    # Save and verify validation error for bad number
+    within(:xpath, "(//tr[.//input[@name='goal[action]']])[2]") do
+      assert find(:xpath, ".//input[@name='goal[action]' and @value='edit_goal_text']")
+      fill_in('goal[frequency]', with: 'abc')
+      find('.goal-submit-link').click
+    end
+    assert page.has_content? "1 error prohibited this goal from being saved:"
+    assert page.has_content? "Frequency is not a number"
+
+    # Fill Goal in edit and Save
+    goal_in_edit = all(:xpath, "(//tr[.//input[@name='goal[action]']])")[1]
+    within goal_in_edit do
+      fill_in('goal[frequency]', with: '33')
+      find('.goal-submit-link').click
+    end
+
+    # Verify Successful Modification
+    assert page.has_content? 'Goal was successfully updated.'
+    assert page.has_content? '33'
 
   end
 
