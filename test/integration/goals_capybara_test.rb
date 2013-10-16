@@ -57,7 +57,7 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
 
     submit_all_blank_and_validate()
 
-    find(:xpath, "//a[@class='edit-goal-link][0]'").click
+    find(:xpath, "//a[@class='goal-edit-link][0]'").click
     assert find('.goal-submit-link').visible?
 
   end
@@ -71,13 +71,23 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
 
     submit_all_blank_and_validate()
 
+    # Assert hidden row has expected value
+    within(:xpath, "(//tr[.//a[contains(@class, 'goal-submit-link')]])[1]", visible: false) do
+      assert !find(:xpath, ".//a[contains(@class, 'goal-submit-link')]", visible: false).visible?
+      assert find(:xpath, ".//input[@name='goal[action]' and @value='action2']", visible: false)
+    end
+    assert page.has_no_css?('.goal-submit-link')
+
     # Open Goal for Editing
-    assert !find(:xpath, "(//a[contains(@class, 'goal-submit-link')])[1]", visible: false).visible?
-    find(:xpath, "(//a[contains(@class, 'edit-goal-link')])[1]").click
-    assert find('.goal-submit-link').visible?
+    within(:xpath, "(//tr[.//a[contains(@class, 'goal-edit-link')]])[1]") do
+      find(:xpath, ".//td[text()='action2']")
+      find(:xpath, ".//a[contains(@class, 'goal-edit-link')]").click
+    end
+    assert find('.goal-submit-link')
 
     # Save and verify validation error
     within(:xpath, "(//tr[.//input[@name='goal[action]']])[2]") do
+      assert find(:xpath, ".//input[@name='goal[action]' and @value='action2']")
       fill_in('goal[action]', with: '')
       find('.goal-submit-link').click
     end
@@ -93,6 +103,8 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
     # Verify Successful Modification
     assert page.has_content? 'Goal was successfully updated.'
     assert page.has_content? 'edit_goal_text'
+
+
 
   end
 

@@ -6,7 +6,7 @@ $(() ->
     $(this).datepicker({ dateFormat: 'yy-mm-dd' })
     return
   )
-  $('.edit-goal-link').click( (eventObject) ->
+  $('.goal-edit-link').click( (eventObject) ->
     $(this).parents('.view-goal-table').hide()
     $(this).parents('.view-edit-pair').children('.edit-goal-form').show()
     $('.icon-pencil').css('visibility', 'hidden')
