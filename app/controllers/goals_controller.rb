@@ -40,7 +40,7 @@ class GoalsController < ApplicationController
   # POST /goals
   # POST /goals.json
   def create
-    @goals = current_user.goals
+    @goals = goals_for_current_user
     @goal = Goal.new(params[:goal])
     @goal.user = current_user
 
