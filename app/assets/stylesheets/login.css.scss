@@ -1,0 +1,16 @@
+form#new_user {
+  label {
+    display: inline;
+  }
+  input[type=checkbox] {
+    margin-bottom: 8px;
+  }
+}
+
+#login-links a{
+  text-decoration: underline;
+  &:hover {
+    background-color: transparent;
+    color: #555555;
+  }
+}
