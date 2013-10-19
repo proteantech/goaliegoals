@@ -97,8 +97,14 @@ class GoalsController < ApplicationController
     @goal.destroy
 
     respond_to do |format|
-      format.html { redirect_to goals_url }
-      format.json { head :no_content }
+      if @goal.destroy
+        format.html { redirect_to goals_url, notice: 'Goal was successfully deleted.' }
+        format.json { head :no_content }
+      else
+        @goals = goals_for_current_user
+        format.html { render action: "index" }
+        format.json { render json: @goal.errors, status: :unprocessable_entity }
+      end
     end
   end
 

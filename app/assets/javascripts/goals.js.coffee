@@ -16,5 +16,11 @@ $(() ->
     $(this).parents('.edit-goal-form').submit()
     return
   )
+  $('.goal-delete-link').click( (eventObject) ->
+    r=confirm("Are you sure you want to delete this Goal?")
+    if (r==true)
+      $(this).closest('.view-edit-pair').find('.button_to').submit()
+    return false
+  )
   return
 )

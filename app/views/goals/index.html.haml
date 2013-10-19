@@ -85,8 +85,7 @@
           %td.text-center.actions-cell
             = link_to "<i class='icon-list'></i>".html_safe, goal_logs_url(goal), title: 'View Logs for this Goal', class: 'goalie-action-icon'
             = link_to "<i class='icon-ok'></i>".html_safe, '#', title: 'Save this Goal', class: 'goalie-action-icon goal-submit-link'
-            = link_to "<i class='icon-remove'></i>".html_safe, goal, :method => :delete, :data => { :confirm => 'Are you sure?' }, title: 'Delete this Goal', class: 'goalie-action-icon'
-
+            = link_to "<i class='icon-remove'></i>".html_safe, '#', title: 'Delete this Goal',  id: 'goal-delete-link-id', class: 'goalie-action-icon goal-delete-link'
     - unless goal.id == @goal.id
       %table{class: 'view-goal-table table table-condensed table-striped table-bordered no-bottom-margin plain-top'}
         %tr.view-goal-row
@@ -107,4 +106,5 @@
             = link_to "<i class='icon-list'></i>".html_safe, goal_logs_url(goal), title: 'View Logs for this Goal', class: 'goalie-action-icon'
             %a{title: 'Edit this Goal', class: 'goalie-action-icon goal-edit-link', href:'#'}
               %i{class: 'icon-pencil'}
-            = link_to "<i class='icon-remove'></i>".html_safe, goal, :method => :delete, :data => { :confirm => 'Are you sure?' }, title: 'Delete this Goal', class: 'goalie-action-icon'
+            = link_to "<i class='icon-remove'></i>".html_safe, '#', title: 'Delete this Goal',  id: 'goal-delete-link-id', class: 'goalie-action-icon goal-delete-link'
+            = button_to 'Delete', goal, :method => :delete, class: 'goal-delete-button'

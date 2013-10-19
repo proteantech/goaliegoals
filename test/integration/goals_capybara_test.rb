@@ -41,13 +41,22 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
     }
   end
 
+  def teardown
+    logout()
+  end
+
+  def logout
+    click_on 'Logout'
+    assert page.has_content? 'Signed out successfully.'
+    assert page.has_content? 'Welcome to Goalie!'
+  end
+
   test 'create goal' do
 
     login()
 
     submit_and_verify_goal1()
     submit_and_verify_goal2()
-
     submit_all_blank_and_validate()
 
     # Fill in fields one at a time and ensure proper validation
@@ -55,11 +64,19 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
       fill_next_field_and_validate(k)
     end
 
-    submit_all_blank_and_validate()
+    deleteGoal(3)
 
-    find(:xpath, "//a[@class='goal-edit-link][0]'").click
-    assert find('.goal-submit-link').visible?
+  end
 
+  def deleteGoal(numGoals)
+    (0...numGoals).each do
+      within(:xpath, "(//tr[.//a[contains(@class, 'goal-edit-link')]])[1]") do
+        click_link 'goal-delete-link-id'
+        a = page.driver.browser.switch_to.alert
+        a.accept  # can also be a.dismiss
+      end
+      assert page.has_content? 'Goal was successfully deleted.'
+    end
   end
 
   test 'edit goal' do
@@ -147,6 +164,19 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
     assert page.has_content?('Signed in successfully.')
   end
 
+  def login_staging
+    visit 'http://goalie-staging.herokuapp.com/'
+    click_on 'Login'
+
+    assert page.has_content? 'Sign in'
+    fill_in 'user_email', with: 'mmspam31@gmail.com'
+    fill_in 'user_password', with: 'password'
+    click_on 'Sign in'
+
+    assert page.has_content?('Goals')
+    assert page.has_content?('Signed in successfully.')
+  end
+
   def submit_and_verify_goal1
     fill_in 'goal_action', with: 'action1'
     fill_in 'goal_quantity', with: '1'
@@ -183,7 +213,7 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
 
   # Check validation with no fields filled in
   def submit_all_blank_and_validate
-    blank_dates_unless_should_pass
+    blank_dates
     click_on 'Add'
     validate_fields
   end
@@ -209,6 +239,11 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
     unless @fields[:end][:should_pass]
       fill_in 'goal_end', with: ''
     end
+  end
+
+  def blank_dates
+    fill_in 'goal_start', with: ''
+    fill_in 'goal_end', with: ''
   end
 
   def validate_fields

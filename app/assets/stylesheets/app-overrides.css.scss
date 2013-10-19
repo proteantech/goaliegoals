@@ -76,3 +76,11 @@ td.date-cell .field_with_errors {
   border-top-right-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
 }
+
+table.table td {
+  vertical-align: middle;
+}
+
+.goal-delete-button {
+  display: none;
+}

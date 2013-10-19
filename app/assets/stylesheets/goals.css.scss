@@ -69,7 +69,7 @@
   margin-bottom: 0;
 }
 
-.status-cell {
+status-cell {
   width: 60px;
 }
 
@@ -130,4 +130,8 @@
 
 form table input {
   width: 100px;
+}
+
+form.button_to {
+  margin-bottom: 0px;
 }
