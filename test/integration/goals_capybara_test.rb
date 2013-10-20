@@ -86,12 +86,20 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
     end
   end
 
+  def view_row_xpath(fields)
+    "(//tr[.//a[contains(@class, 'goal-edit-link')] and td[contains(@class, 'action-cell') and .='#{fields[:action][:content]}']])"
+  end
+
+  def edit_row_xpath(fields)
+    "(//tr[.//a[contains(@class, 'goal-submit-link')] and descendant::input[contains(@class, 'action-field') and @value='#{fields[:action][:content]}']])"
+  end
+
   test 'edit goal' do
 
     login()
 
-    submit_and_verify_goal1()
-    submit_and_verify_goal2()
+    fields1 = submit_and_verify_goal1()
+    fields2 = submit_and_verify_goal2()
 
     submit_all_blank_and_validate()
 
@@ -103,14 +111,14 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
     assert page.has_no_css?('.goal-submit-link')
 
     # Open Goal for Editing
-    within(:xpath, "(//tr[.//a[contains(@class, 'goal-edit-link')]])[1]") do
+    within(:xpath, view_row_xpath(fields2)) do
       find(:xpath, ".//td[text()='action2']")
       find(:xpath, ".//a[contains(@class, 'goal-edit-link')]").click
     end
     assert find('.goal-submit-link')
 
     # Save and verify validation error for missing action field
-    within(:xpath, "(//tr[.//input[@name='goal[action]']])[2]") do
+    within(:xpath, edit_row_xpath(fields2)) do
       assert find(:xpath, ".//input[@name='goal[action]' and @value='action2']")
       fill_in('goal[action]', with: '')
       find('.goal-submit-link').click
@@ -199,6 +207,8 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
     click_on 'Add'
 
     validate_fields(fields)
+
+    return fields
   end
 
   def fill_fields(fields)
@@ -226,6 +236,8 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
     click_on 'Add'
 
     validate_fields(fields)
+
+    return fields
   end
 
   # Check validation with no fields filled in
