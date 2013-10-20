@@ -70,7 +70,56 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
       fill_next_field_and_validate(k)
     end
 
+    assert page.has_content? 'Goal was successfully created.'
+
     deleteGoal(3)
+
+  end
+
+  test 'edit goal' do
+
+    login()
+
+    fields1 = submit_and_verify_goal1()
+    fields2 = submit_and_verify_goal2()
+
+    submit_all_blank_and_validate()
+
+    # Assert hidden row has expected value
+    within(:xpath, edit_row_xpath(fields2), visible: false) do
+      assert !find(:xpath, ".//a[contains(@class, 'goal-submit-link')]", visible: false).visible?
+      assert find(:xpath, ".//input[@name='goal[action]' and @value='action2']", visible: false)
+    end
+    assert page.has_no_css?('.goal-submit-link')
+
+    # Open Goal for Editing
+    edit_goal(fields2)
+
+    # Save and verify validation error for missing action field
+    fields2[:unit][:content] = ''
+    fields2[:unit][:should_pass] = false
+    fill_submit_and_validate(fields2)
+
+    # Fill Goal in edit with valid values, Save, Validate
+    fields2[:unit][:content] = 'edited_goal_unit'
+    fields2[:unit][:should_pass] = true
+    fill_submit_and_validate(fields2)
+
+    # Open Goal for Editing
+    edit_goal(fields2)
+
+    # Save and verify validation error for bad number
+    fields2[:frequency][:content] = 'bad frequency'
+    fields2[:frequency][:should_pass] = false
+    fill_submit_and_validate(fields2)
+
+    # Fill Goal in edit and Save
+    fields2[:frequency][:content] = '33'
+    fields2[:frequency][:should_pass] = true
+    fill_submit_and_validate(fields2)
+
+    # Verify Successful Modification
+    assert page.has_content? 'Goal was successfully updated.'
 
   end
 
@@ -79,7 +128,7 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
       within(:xpath, "(//tr[.//a[contains(@class, 'goal-edit-link')]])[1]") do
         click_link 'goal-delete-link-id'
         a = page.driver.browser.switch_to.alert
-        assert a.text == 'Goal was successfully deleted.'
+        assert a.text == 'Are you sure you want to delete this Goal?'
         a.accept  # can also be a.dismiss
       end
       assert page.has_content? 'Goal was successfully deleted.'
@@ -94,75 +143,36 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
     "(//tr[.//a[contains(@class, 'goal-submit-link')] and descendant::input[contains(@class, 'action-field') and @value='#{fields[:action][:content]}']])"
   end
 
-  test 'edit goal' do
-
-    login()
-
-    fields1 = submit_and_verify_goal1()
-    fields2 = submit_and_verify_goal2()
-
-    submit_all_blank_and_validate()
-
-    # Assert hidden row has expected value
-    within(:xpath, "(//tr[.//a[contains(@class, 'goal-submit-link')]])[1]", visible: false) do
-      assert !find(:xpath, ".//a[contains(@class, 'goal-submit-link')]", visible: false).visible?
-      assert find(:xpath, ".//input[@name='goal[action]' and @value='action2']", visible: false)
-    end
-    assert page.has_no_css?('.goal-submit-link')
-
-    # Open Goal for Editing
+  def edit_goal(fields2)
     within(:xpath, view_row_xpath(fields2)) do
       find(:xpath, ".//td[text()='action2']")
       find(:xpath, ".//a[contains(@class, 'goal-edit-link')]").click
     end
     assert find('.goal-submit-link')
+  end
 
-    # Save and verify validation error for missing action field
-    within(:xpath, edit_row_xpath(fields2)) do
-      assert find(:xpath, ".//input[@name='goal[action]' and @value='action2']")
-      fill_in('goal[action]', with: '')
+  def fill_submit_and_validate(fields2)
+    fill_goal_in_edit(fields2)
+    submit_goal(fields2)
+    validate_fields(fields2)
+  end
+
+  def fill_goal_in_edit(fields)
+    within(:xpath, edit_row_xpath(fields)) do
+      fields.keys.each do |field|
+        if fields[field][:type] == :select
+          select fields[field][:content], from: "#{field}-select"
+        else
+          fill_in "goal[#{field}]", with: fields[field][:content]
+        end
+      end
+    end
+  end
+
+  def submit_goal(fields)
+    within(:xpath, edit_row_xpath(fields)) do
       find('.goal-submit-link').click
     end
-    assert page.has_content? "1 error prohibited this goal from being saved:"
-
-    # Fill Goal in edit and Save
-    goal_in_edit = all(:xpath, "(//tr[.//input[@name='goal[action]']])")[1]
-    within goal_in_edit do
-      fill_in('goal[action]', with: 'edit_goal_text')
-      find('.goal-submit-link').click
-    end
-
-    # Verify Successful Modification
-    assert page.has_content? 'Goal was successfully updated.'
-    assert page.has_content? 'edit_goal_text'
-
-    # Open Goal for Editing
-    within(:xpath, "(//tr[.//a[contains(@class, 'goal-edit-link')]])[1]") do
-      find(:xpath, ".//td[text()='edit_goal_text']")
-      find(:xpath, ".//a[contains(@class, 'goal-edit-link')]").click
-    end
-    assert find('.goal-submit-link')
-
-    # Save and verify validation error for bad number
-    within(:xpath, "(//tr[.//input[@name='goal[action]']])[2]") do
-      assert find(:xpath, ".//input[@name='goal[action]' and @value='edit_goal_text']")
-      fill_in('goal[frequency]', with: 'abc')
-      find('.goal-submit-link').click
-    end
-    assert page.has_content? "1 error prohibited this goal from being saved:"
-    assert page.has_content? "Frequency is not a number"
-
-    # Fill Goal in edit and Save
-    goal_in_edit = all(:xpath, "(//tr[.//input[@name='goal[action]']])")[1]
-    within goal_in_edit do
-      fill_in('goal[frequency]', with: '33')
-      find('.goal-submit-link').click
-    end
-
-    # Verify Successful Modification
-    assert page.has_content? 'Goal was successfully updated.'
-    assert page.has_content? '33'
-
   end
 
   def login
@@ -255,8 +265,10 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
   end
 
   def fill_next_field_and_adjust_fields_map(k)
-    @fields[k][:should_pass] = true
-    fill_in "goal_#{k}", with: @fields[k][:content]
+    unless @fields[k][:type] == :select
+      @fields[k][:should_pass] = true
+      fill_in "goal[#{k}]", with: @fields[k][:content]
+    end
     blank_dates_unless_should_pass
   end
 
@@ -284,7 +296,7 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
       assert page.has_content? "#{pluralize(error_count, 'error')} prohibited this goal from being saved:"
       validate_fields_on_error(fields)
     else
-      assert page.has_content? 'Goal was successfully created.'
+      assert page.has_content? 'Goal was successfully'
       validate_fields_on_success(fields)
     end
 
@@ -302,10 +314,14 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
         if fields[k][:should_pass]
           p "key=#{k}, content=#{fields[k][:content]}"
           assert page.has_no_content?("#{k.capitalize} #{fields[k][:message]}")
-          assert page.has_field?("goal_#{k}", with: fields[k][:content])
+          if fields[k][:type] == :select
+            assert page.has_select?("goal[#{k}]", selected: fields[k][:content])
+          else
+            assert page.has_field?("goal[#{k}]", with: fields[k][:content])
+          end
         else
           assert page.has_content?("#{k.capitalize} #{fields[k][:message]}")
-          assert page.has_no_field?("goal_#{k}", with: fields[k][:content])
+          #assert page.has_no_field?("goal_#{k}", with: fields[k][:content])
         end
       end
     end
