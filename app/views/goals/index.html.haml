@@ -31,7 +31,7 @@
         = f.text_field :frequency, {class: 'frequency-field table-input'}
       %td.text-center.times-a-cell#times-a-field times a
       %td.text-center.frequency-unit-cell
-        = f.select :frequency_unit, Goalie::DateUtil::TIME_UNITS, {}, id: 'frequency-unit-select', class: 'frequency-unit-field table-input'
+        = f.select :frequency_unit, Goalie::DateUtil::TIME_UNITS, {}, id: 'frequency_unit-select', class: 'frequency_unit-field table-input'
       %td.text-center.date-cell
         .input-append
           - goalStart = formGoal.start ? formGoal.start : Time.zone.today
@@ -68,7 +68,7 @@
             = f.text_field :frequency, {value: goalie_number(goal.frequency), class: 'frequency-field table-input'}
           %td.text-center.times-a-cell#times-a-field times a
           %td.text-center.frequency-unit-cell
-            = f.select :frequency_unit, Goalie::DateUtil::TIME_UNITS, {}, id: 'frequency-unit-select', class: 'frequency-unit-field table-input'
+            = f.select :frequency_unit, Goalie::DateUtil::TIME_UNITS, {}, id: 'frequency_unit-select', class: 'frequency_unit-field table-input'
           %td.text-center.date-cell
             .input-append
               - goalStart = goal.start ? goal.start : Time.zone.today
