@@ -168,6 +168,9 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
     add_log(log1)
     validate_fields(log1, :log)
     assert page.has_content? '1 error prohibited this goal from being saved:'
+
+    click_link 'Goals'
+    deleteGoals([fields1])
   end
 
   def add_log(log)
