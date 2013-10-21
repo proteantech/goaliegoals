@@ -38,7 +38,7 @@
     %th.text-center.actions-cell#actions-header Actions
 
 - formLog = @log
-- formLog = Log.new if @goal.id
+- formLog = Log.new if @log.id
 - formLog.goal = @goal
 = form_for [@goal, formLog], html: {class: 'no-margins'} do |f|
   %table{class: 'table table-condensed table-striped table-bordered no-bottom-margin'}
