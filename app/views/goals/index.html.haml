@@ -83,7 +83,7 @@
                 %i.icon-calendar
           %td.text-center.status-cell#status-field -
           %td.text-center.actions-cell
-            = link_to "<i class='icon-list'></i>".html_safe, goal_logs_url(goal), title: 'View Logs for this Goal', class: 'goalie-action-icon'
+            = link_to "<i class='icon-list'></i>".html_safe, goal_logs_url(goal), title: 'View Logs for this Goal', class: 'goalie-action-icon goal-logs-link'
             = link_to "<i class='icon-ok'></i>".html_safe, '#', title: 'Save this Goal', class: 'goalie-action-icon goal-submit-link'
             = link_to "<i class='icon-remove'></i>".html_safe, '#', title: 'Delete this Goal',  id: 'goal-delete-link-id', class: 'goalie-action-icon goal-delete-link'
     - unless goal.id == @goal.id
@@ -103,7 +103,7 @@
             - else
               %span.label.label-important Failing
           %td.text-center.actions-cell
-            = link_to "<i class='icon-list'></i>".html_safe, goal_logs_url(goal), title: 'View Logs for this Goal', class: 'goalie-action-icon'
+            = link_to "<i class='icon-list'></i>".html_safe, goal_logs_url(goal), title: 'View Logs for this Goal', class: 'goalie-action-icon goal-logs-link'
             %a{title: 'Edit this Goal', class: 'goalie-action-icon goal-edit-link', href:'#'}
               %i{class: 'icon-pencil'}
             = link_to "<i class='icon-remove'></i>".html_safe, '#', title: 'Delete this Goal',  id: 'goal-delete-link-id', class: 'goalie-action-icon goal-delete-link'

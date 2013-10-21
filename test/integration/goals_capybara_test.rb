@@ -121,11 +121,22 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
     # Verify Successful Modification
     assert page.has_content? 'Goal was successfully updated.'
 
+    # Delete the Goals
     [fields1, fields2].each do |fields|
       edit_goal(fields)
       deleteGoals([fields])
     end
 
+  end
+
+  test 'create logs' do
+    login()
+
+    fields1 = submit_and_verify_goal1()
+    within(:xpath, view_row_xpath(fields1)) do
+      find(:xpath, ".//a[contains(@class, 'goal-logs-link')]").click
+    end
+    assert page.has_content? 'Minimum to Stay on Track:'
   end
 
   def deleteGoals(goals)
