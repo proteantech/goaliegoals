@@ -4,43 +4,43 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
   include ActionView::Helpers::TextHelper
 
   def setup()
-    cantBeBlank = "can't be blank"
-    isNotNumber = 'is not a number'
+    @cantBeBlank = "can't be blank"
+    @isNotNumber = 'is not a number'
 
     @fields = {
         action: {
-            message:      cantBeBlank,
+            message:      @cantBeBlank,
             should_pass:  false,
             content:      'action3'
         },
         quantity: {
-            message:      isNotNumber,
+            message:      @isNotNumber,
             should_pass:  false,
             content:      '333'
         },
         unit: {
-            message:      cantBeBlank,
+            message:      @cantBeBlank,
             should_pass:  false,
             content:      'unit3'
         },
         frequency: {
-            message:      isNotNumber,
+            message:      @isNotNumber,
             should_pass:  false,
             content:      '444'
         },
         'frequency_unit'.to_sym => {
-            message:      cantBeBlank,
+            message:      @cantBeBlank,
             should_pass:  true,
             content:      '444',
             type: :select
         },
         start: {
-            message:      cantBeBlank,
+            message:      @cantBeBlank,
             should_pass:  false,
             content:      '2000-12-07'
         },
         end: {
-            message:      cantBeBlank,
+            message:      @cantBeBlank,
             should_pass:  false,
             content:      '2000-12-08'
         }
@@ -133,10 +133,50 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
     login()
 
     fields1 = submit_and_verify_goal1()
+
+    log1 = {
+        log_date: {
+            message:      @cantBeBlank,
+            should_pass:  true,
+            content:      '2000-01-01'
+        },
+        quantity: {
+            message:      @isNotNumber,
+            should_pass:  true,
+            content:      '11'
+        },
+        description: {
+            message:      @cantBeBlank,
+            should_pass:  true,
+            content:      'description1'
+        }
+    }
+
+    #Goto logs page
     within(:xpath, view_row_xpath(fields1)) do
       find(:xpath, ".//a[contains(@class, 'goal-logs-link')]").click
     end
     assert page.has_content? 'Minimum to Stay on Track:'
+
+    # Test Simple Add
+    add_log(log1)
+    validate_fields(log1, :log)
+
+    # Test Error Add
+    log1[:quantity][:content] = ''
+    log1[:quantity][:should_pass] = false
+    add_log(log1)
+    validate_fields(log1, :log)
+    assert page.has_content? '1 error prohibited this goal from being saved:'
+  end
+
+  def add_log(log)
+    within(:xpath, "//tr[.//button[text()='Add']]") do
+      fill_in "log[log_date]", with: log[:log_date][:content]
+      fill_in "log[quantity]", with: log[:quantity][:content]
+      fill_in "log[description]", with: log[:description][:content]
+      click_button 'Add'
+    end
   end
 
   def deleteGoals(goals)
@@ -303,37 +343,37 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
     fill_in 'goal_end', with: ''
   end
 
-  def validate_fields(fields)
+  def validate_fields(fields, object=:goal)
 
     passes = fields.values.collect { |mini_hash| mini_hash[:should_pass] }
     error_count = passes.inject(0) {|err_count, should_pass| should_pass ? err_count : err_count  + 1}
 
     if error_count > 0
       assert page.has_content? "#{pluralize(error_count, 'error')} prohibited this goal from being saved:"
-      validate_fields_on_error(fields)
+      validate_fields_on_error(fields, object)
     else
-      assert page.has_content? 'Goal was successfully'
-      validate_fields_on_success(fields)
+      assert page.has_content? "#{object.capitalize} was successfully"
+      validate_fields_on_success(fields, object)
     end
 
   end
 
-  def validate_fields_on_success(fields)
+  def validate_fields_on_success(fields, object)
     fields.keys.each do |k|
       assert page.has_content?(fields[k][:content])
     end
   end
 
-  def validate_fields_on_error(fields)
+  def validate_fields_on_error(fields, object)
     fields.keys.each do |k|
       unless fields[k][:type] == :select
         if fields[k][:should_pass]
           p "key=#{k}, content=#{fields[k][:content]}"
           assert page.has_no_content?("#{k.capitalize} #{fields[k][:message]}")
           if fields[k][:type] == :select
-            assert page.has_select?("goal[#{k}]", selected: fields[k][:content])
+            assert page.has_select?("#{object}[#{k}]", selected: fields[k][:content])
           else
-            assert page.has_field?("goal[#{k}]", with: fields[k][:content])
+            assert page.has_field?("#{object}[#{k}]", with: fields[k][:content])
           end
         else
           assert page.has_content?("#{k.capitalize} #{fields[k][:message]}")
