@@ -2,6 +2,7 @@ require_relative '../../lib/goalie/date_util'
 class LogsController < ApplicationController
 
   before_filter :setup_goal
+  before_filter :authenticate_user!
 
   def setup_goal
     goal_id = params[:goal_id]
