@@ -61,8 +61,8 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
 
     login()
 
-    submit_and_verify_goal1()
-    submit_and_verify_goal2()
+    fields1 = submit_and_verify_goal1()
+    fields2 = submit_and_verify_goal2()
     submit_all_blank_and_validate()
 
     # Fill in fields one at a time and ensure proper validation
@@ -72,7 +72,7 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
 
     assert page.has_content? 'Goal was successfully created.'
 
-    deleteGoal(3)
+    deleteGoals([fields1, fields2, @fields])
 
   end
 
@@ -121,11 +121,16 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
     # Verify Successful Modification
     assert page.has_content? 'Goal was successfully updated.'
 
+    [fields1, fields2].each do |fields|
+      edit_goal(fields)
+      deleteGoals([fields])
+    end
+
   end
 
-  def deleteGoal(numGoals)
-    (0...numGoals).each do
-      within(:xpath, "(//tr[.//a[contains(@class, 'goal-edit-link')]])[1]") do
+  def deleteGoals(goals)
+    goals.each do |goal|
+      within(:xpath, "#{edit_row_xpath(goal)} | #{view_row_xpath(goal)}") do
         click_link 'goal-delete-link-id'
         a = page.driver.browser.switch_to.alert
         assert a.text == 'Are you sure you want to delete this Goal?'
@@ -143,18 +148,18 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
     "(//tr[.//a[contains(@class, 'goal-submit-link')] and descendant::input[contains(@class, 'action-field') and @value='#{fields[:action][:content]}']])"
   end
 
-  def edit_goal(fields2)
-    within(:xpath, view_row_xpath(fields2)) do
-      find(:xpath, ".//td[text()='action2']")
+  def edit_goal(fields)
+    within(:xpath, view_row_xpath(fields)) do
+      find(:xpath, ".//td[text()='#{fields[:action][:content]}']")
       find(:xpath, ".//a[contains(@class, 'goal-edit-link')]").click
     end
     assert find('.goal-submit-link')
   end
 
-  def fill_submit_and_validate(fields2)
-    fill_goal_in_edit(fields2)
-    submit_goal(fields2)
-    validate_fields(fields2)
+  def fill_submit_and_validate(fields)
+    fill_goal_in_edit(fields)
+    submit_goal(fields)
+    validate_fields(fields)
   end
 
   def fill_goal_in_edit(fields)
