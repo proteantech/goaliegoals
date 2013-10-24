@@ -55,10 +55,19 @@ class GoalsControllerTest < ActionController::TestCase
 
   test "should not allow users to update others goals" do
     other_users_goal = goals(:books_2_per_day)
-    put :update, id: other_users_goal#, goal: { action: @goal.action, end: @goal.end, frequency: @goal.frequency, frequency_unit: @goal.frequency_unit, quantity: @goal.quantity, start: @goal.start, unit: @goal.unit }
+    put :update, id: other_users_goal
     assert flash[:alert] == "You can't update someone else's goal!."
     assigns(:goal)
     assert_redirected_to goals_path()
+  end
+
+  test "should NOT destroy other users goal" do
+    other_users_goal = goals(:books_2_per_day)
+    assert_no_difference('Goal.count') do
+      delete :destroy, id: other_users_goal
+    end
+    assert_redirected_to goals_path
+    assert flash[:alert] == "You can't delete someone else's goal!."
   end
 
   test "should destroy goal" do

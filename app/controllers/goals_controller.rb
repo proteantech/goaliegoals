@@ -100,13 +100,10 @@ class GoalsController < ApplicationController
   # DELETE /goals/1.json
   def destroy
     @goal = Goal.find(params[:id])
-    @goal.destroy
-
     respond_to do |format|
-
       if @goal.user != current_user
-        format.html { redirect_to goals_url, alert: "You can't update someone else's goal!." }
-        format.json { render json: {errors: ["You can't update someone else's goal!."]}, status: :forbidden }
+        format.html { redirect_to goals_url, alert: "You can't delete someone else's goal!." }
+        format.json { render json: {errors: ["You can't delete someone else's goal!."]}, status: :forbidden }
       elsif @goal.destroy
         format.html { redirect_to goals_url, notice: 'Goal was successfully deleted.' }
         format.json { head :no_content }
