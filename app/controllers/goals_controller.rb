@@ -1,7 +1,7 @@
 class GoalsController < ApplicationController
 
   before_filter :authenticate_user!
-  
+
   # GET /goals
   # GET /goals.json
   def index
@@ -58,7 +58,6 @@ class GoalsController < ApplicationController
     end
   end
 
-
   # POST /goals
   # POST /goals.json
   def create_solo
@@ -82,7 +81,11 @@ class GoalsController < ApplicationController
     @goal = Goal.find(params[:id])
 
     respond_to do |format|
-      if @goal.update_attributes(params[:goal])
+
+      if @goal.user != current_user
+        format.html { redirect_to goals_url, alert: "You can't update someone else's goal!." }
+        format.json { render json: {errors: ["You can't update someone else's goal!."]}, status: :forbidden }
+      elsif @goal.update_attributes(params[:goal])
         format.html { redirect_to goals_url, notice: 'Goal was successfully updated.' }
         format.json { head :no_content }
       else
@@ -100,7 +103,11 @@ class GoalsController < ApplicationController
     @goal.destroy
 
     respond_to do |format|
-      if @goal.destroy
+
+      if @goal.user != current_user
+        format.html { redirect_to goals_url, alert: "You can't update someone else's goal!." }
+        format.json { render json: {errors: ["You can't update someone else's goal!."]}, status: :forbidden }
+      elsif @goal.destroy
         format.html { redirect_to goals_url, notice: 'Goal was successfully deleted.' }
         format.json { head :no_content }
       else

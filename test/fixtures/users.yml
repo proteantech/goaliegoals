@@ -12,7 +12,7 @@ one:
 #  remember_me: true
 
 two:
-  name: user
+  name: user2
   email: email2@gmail.com
 #  password: pass
 #  password_confirmation: pass

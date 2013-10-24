@@ -5,10 +5,10 @@ class GoalsControllerTest < ActionController::TestCase
 
   setup do
     @goal = goals(:books_2_per_month)
+    sign_in users(:one)
   end
 
   test "should get index" do
-    sign_in User.first
     get :index
     assert_response :success
     assert_not_nil assigns(:goals)
@@ -20,7 +20,6 @@ class GoalsControllerTest < ActionController::TestCase
   end
 
   test "should create goal" do
-    sign_in User.first
     assert_difference('Goal.count') do
       post :create, goal: { action: @goal.action,
                             quantity: @goal.quantity,
@@ -48,6 +47,16 @@ class GoalsControllerTest < ActionController::TestCase
 
   test "should update goal" do
     put :update, id: @goal, goal: { action: @goal.action, end: @goal.end, frequency: @goal.frequency, frequency_unit: @goal.frequency_unit, quantity: @goal.quantity, start: @goal.start, unit: @goal.unit }
+    assigns(:goal)
+    assert_redirected_to goals_path()
+    assert flash[:notice] == 'Goal was successfully updated.'
+    assert flash[:alert].nil?
+  end
+
+  test "should not allow users to update others goals" do
+    other_users_goal = goals(:books_2_per_day)
+    put :update, id: other_users_goal#, goal: { action: @goal.action, end: @goal.end, frequency: @goal.frequency, frequency_unit: @goal.frequency_unit, quantity: @goal.quantity, start: @goal.start, unit: @goal.unit }
+    assert flash[:alert] == "You can't update someone else's goal!."
     assigns(:goal)
     assert_redirected_to goals_path()
   end

@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 books_2_per_month:
+  user: one
   action: read
   quantity: 2
   unit: books
@@ -10,6 +11,7 @@ books_2_per_month:
   end: 2013-05-31
 
 books_2_per_day:
+  user: two
   action: read
   quantity: 2
   unit: books
