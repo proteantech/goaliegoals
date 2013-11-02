@@ -1,5 +1,12 @@
 @import "app-variables";
 
+.table-header-standalone {
+  margin-bottom: 0px;
+  border-radius: 4px 4px 0px 0px;
+  border-bottom: none;
+  background-color: dark-gray;
+}
+
 h1 {
   font-size: $xl-font-size;
 }
