@@ -1,8 +1,11 @@
 @import "app-variables";
 
-#goalie-brand:hover {
-  background-color: transparent;
-  color: black;
+#goalie-brand {
+  font-weight: bold;
+  &:hover {
+    background-color: transparent;
+    color: black;
+  }
 }
 
 .navbar {
