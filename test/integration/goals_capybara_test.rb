@@ -58,7 +58,8 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
   end
 
   test 'details' do
-    visit '/details'
+    visit '/'
+    click_on 'Details'
     assert page.has_content? 'Details of Goalie Goals'
     login()
     visit '/details'
