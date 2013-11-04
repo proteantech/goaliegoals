@@ -22,6 +22,8 @@
 
 .action-cell {
   width: 100px;
+  max-width: 100px;
+  word-wrap: break-word;
   border-top-left-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
 }
@@ -32,6 +34,8 @@
 
 .goal-quantity-cell {
   width: 65px;
+  max-width: 65px;
+  word-wrap: break-word;
 }
 
 .goal-quantity-field {
@@ -40,6 +44,8 @@
 
 .unit-cell {
   width: 70px;
+  max-width: 70px;
+  word-wrap: break-word;
 }
 
 .unit-field {
@@ -48,6 +54,8 @@
 
 .frequency-cell {
   width: 50px;
+  max-width: 50px;
+  word-wrap: break-word;
 }
 
 .frequency-field {
