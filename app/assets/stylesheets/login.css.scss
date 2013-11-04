@@ -7,6 +7,10 @@ form#new_user {
   }
 }
 
+#user_email, #user_password {
+  height: auto;
+}
+
 #login-links a{
   text-decoration: underline;
   &:hover {
