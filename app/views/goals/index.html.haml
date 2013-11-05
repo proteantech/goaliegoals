@@ -56,6 +56,7 @@
       - goalClasses = 'no-margins edit-goal-form'
       - goal = @goal
     = form_for goal, html: {class: goalClasses} do |f|
+      = f.submit class: 'hidden'
       %table{class: 'table table-condensed  table-striped table-bordered no-bottom-margin plain-top'}
         %tr.edit-goal-row
           %td.text-center.action-cell

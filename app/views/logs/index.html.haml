@@ -64,6 +64,7 @@
       - logClasses = 'no-margins edit-log-form'
       - log = @log
     = form_for [@goal, log], html: {class: logClasses} do |f|
+      = f.submit class: 'hidden'
       %table.edit-log-table{class: 'table table-condensed  table-striped table-bordered no-bottom-margin plain-top'}
         %tr
           = f.hidden_field :id
