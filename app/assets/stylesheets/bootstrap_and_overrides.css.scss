@@ -27,3 +27,10 @@ select {
 td.form-column {
   border-top: 0px;
 }
+
+.alert a.close {
+  &:hover {
+    background-color: transparent;
+    color: black;
+  }
+}
