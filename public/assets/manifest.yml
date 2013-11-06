@@ -15,6 +15,8 @@ application.js: application-d2a39786c24186914e58ebea0027be5f.js
 application/index.js: application-d2a39786c24186914e58ebea0027be5f.js
 application.css: application-161b78618c700b7adde30b5ba51c5342.css
 application/index.css: application-161b78618c700b7adde30b5ba51c5342.css
+analytics.js: analytics-7380d068e74c1576284e5f5ad09aff86.js
+analytics/index.js: analytics-7380d068e74c1576284e5f5ad09aff86.js
 glyphicons-halflings-white.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
 glyphicons-halflings-white/index.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
 glyphicons-halflings.png: glyphicons-halflings-2851b489e8c39f8fad44fc10efb99c3e.png
