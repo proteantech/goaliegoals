@@ -1,8 +1,8 @@
 %html
   %head
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
-      %title= content_for?(:title) ? yield(:title) : "Goalie"
-      %meta{:content => content_for?(:description) ? yield(:description) : "Goalie", :name => "description"}
+      %title= content_for?(:title) ? yield(:title) : 'GoalieGoals - Simple and Effective Goal Management'
+      %meta{:content => content_for?(:description) ? yield(:description) : 'Free cloud based software used to manage, track, and monitor progress of personal goals. Goals are entered using a strict format to guarantee they are specific, measurable, actionable and time-bound.', :name => 'description'}
         = stylesheet_link_tag "application", :media => "all"
         = javascript_include_tag "application"
         = csrf_meta_tags
