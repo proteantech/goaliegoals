@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XML_DIZ_INFO>
+  <MASTER_PAD_VERSION_INFO>
+    <MASTER_PAD_VERSION>4.0</MASTER_PAD_VERSION>
+    <MASTER_PAD_EDITOR>AppVisor 1.0.43</MASTER_PAD_EDITOR>
+    <MASTER_PAD_EDITOR_URL>http://publisher.appvisor.com</MASTER_PAD_EDITOR_URL>
+    <MASTER_PAD_INFO>Portable Application Description, or PAD(TM) 2004 Association of Software Professionals (ASP)http://www.asp-shareware.org/pad is a data set standard and specification that is commercialsoftware publishers to disseminate certified information about their software application. The PAD format is copyright of the ASP and cannot be used without the formal licensing and permission of both the Association of Software Professionals and its agent AppVisor.com.</MASTER_PAD_INFO>
+    <CERTIFIED>No</CERTIFIED>
+    <CERTIFICATE_ID></CERTIFICATE_ID>
+    <CERTIFICATE_LICENSE></CERTIFICATE_LICENSE>
+  </MASTER_PAD_VERSION_INFO>
+  <RoboSoft>
+    <Company_UIN>CMP-C100DF52D74D</Company_UIN>
+    <Product_UIN>APP-D1002777184D</Product_UIN>
+    <Publish_on_CD>N</Publish_on_CD>
+    <NewsFeed_Search_String></NewsFeed_Search_String>
+    <Search_String></Search_String>
+    <Press_Release_Search_String></Press_Release_Search_String>
+    <Backlink></Backlink>
+    <Comments_For_Reviewer></Comments_For_Reviewer>
+    <Search_String_Unique></Search_String_Unique>
+    <Search_Engine_Search_String></Search_Engine_Search_String>
+    <Web_Directories_Search_String></Web_Directories_Search_String>
+    <Company_Description></Company_Description>
+  </RoboSoft>
+  <Company_Info>
+    <PublisherID>pid-b100b49c874d</PublisherID>
+    <BrandID>bid-c100df52d74d</BrandID>
+    <Company_Name>Protean Technologies</Company_Name>
+    <Country>United States of America</Country>
+    <State_Province>VA</State_Province>
+    <City_Town>Centreville</City_Town>
+    <Zip_Postal_Code>20121</Zip_Postal_Code>
+    <Address_1>6800 Colonel Taylor Ln</Address_1>
+    <Address_2></Address_2>
+    <Company_WebSite_URL>http://www.goaliegoals.com</Company_WebSite_URL>
+    <Contact_Info>
+      <Contact_First_Name>Protean</Contact_First_Name>
+      <Contact_Last_Name>Technologies</Contact_Last_Name>
+      <Contact_Email>proteanevolution@gmail.com</Contact_Email>
+      <Author_First_Name>Protean</Author_First_Name>
+      <Author_Last_Name>Technologies</Author_Last_Name>
+      <Author_Email>proteanevolution@gmail.com</Author_Email>
+      <Contact_Phone></Contact_Phone>
+    </Contact_Info>
+    <Support_Info>
+      <Sales_Email>proteanevolution@gmail.com</Sales_Email>
+      <Support_Email>proteanevolution@gmail.com</Support_Email>
+      <General_Email>proteanevolution@gmail.com</General_Email>
+      <Sales_Phone>703-272-2012</Sales_Phone>
+      <Support_Phone>703-272-2012</Support_Phone>
+      <General_Phone>703-272-2012</General_Phone>
+      <Fax_Phone>703-272-2012</Fax_Phone>
+    </Support_Info>
+    <GooglePlusPage></GooglePlusPage>
+    <LinkedinPage></LinkedinPage>
+    <TwitterCompanyPage></TwitterCompanyPage>
+    <FacebookCompanyPage></FacebookCompanyPage>
+    <CompanyStorePage></CompanyStorePage>
+  </Company_Info>
+  <Program_Info>
+    <AppID>app-d1002777184d</AppID>
+    <Program_Name>GoalieGoals</Program_Name>
+    <Program_Version>Beta</Program_Version>
+    <Program_Release_Month>11</Program_Release_Month>
+    <Program_Release_Day>22</Program_Release_Day>
+    <Program_Release_Year>2013</Program_Release_Year>
+    <Program_Cost_Dollars>0</Program_Cost_Dollars>
+    <Program_Cost_Other_Code></Program_Cost_Other_Code>
+    <Program_Cost_Other></Program_Cost_Other>
+    <Program_Type>Freeware</Program_Type>
+    <Program_Category_Class>Home &amp; Hobby::Other</Program_Category_Class>
+    <Program_Specific_Category></Program_Specific_Category>
+    <Program_Categories>Home &amp; Hobby :: Calendars &amp; Planners,Home &amp; Hobby :: Health &amp; Nutrition,Business &amp; Finance :: Misc. Business</Program_Categories>
+    <Program_Release_Status>Major Update</Program_Release_Status>
+    <Program_Install_Support>No Install Support</Program_Install_Support>
+    <Program_OS_Support>WinXP,Windows 8,Windows Phone 7,Windows Phone 8,WinVista,Windows Vista Starter,Windows Vista Home Basic,Windows Vista Home Premium,Windows Vista Business,Windows Vista Enterprise,Windows Vista Ultimate,Windows Vista Home Basic x64,Windows Vista Home Premium x64,Windows Vista Business x64,Windows Vista Enterprise x64,Windows Vista Ultimate x64,Windows Mobile 2005,Linux,Mac OS X,Mac OS X 10.5,Mac OS X 10.6,Mac OS X 10.7,Mac OS X 10.8,Android,BlackBerry,iPhone,iPad,iOS,Handheld/Mobile Other</Program_OS_Support>
+    <Program_Language>English</Program_Language>
+    <Program_Change_Info>Goal Entering and Tracking Simplified to be just 2 pages! Less navigation means easier and more intuitive use.</Program_Change_Info>
+    <Program_System_Requirements>Web Browser</Program_System_Requirements>
+    <Limitations>N/A</Limitations>
+    <Awards></Awards>
+    <File_Info>
+      <File_Size_Bytes>1024</File_Size_Bytes>
+      <File_Size_K>1</File_Size_K>
+      <File_Size_MB>0.00</File_Size_MB>
+      <Filename_Versioned></Filename_Versioned>
+      <Filename_Previous></Filename_Previous>
+      <Filename_Generic></Filename_Generic>
+      <Filename_Long></Filename_Long>
+    </File_Info>
+    <Expire_Info>
+      <Has_Expire_Info>N</Has_Expire_Info>
+      <Expire_Count></Expire_Count>
+      <Expire_Based_On></Expire_Based_On>
+      <Expire_Year></Expire_Year>
+      <Expire_Other_Info></Expire_Other_Info>
+      <Expire_Month></Expire_Month>
+      <Expire_Day></Expire_Day>
+    </Expire_Info>
+    <FacebookFanPage></FacebookFanPage>
+    <VideoLink1URL></VideoLink1URL>
+    <VideoLink2URL></VideoLink2URL>
+    <Includes_JAVA_VM></Includes_JAVA_VM>
+    <Includes_DirectX></Includes_DirectX>
+    <Includes_VB_Runtime></Includes_VB_Runtime>
+    <GooglePlusFanPage></GooglePlusFanPage>
+  </Program_Info>
+  <Web_Info>
+    <Application_URLs>
+      <Application_Info_URL>http://www.goaliegoals.com</Application_Info_URL>
+      <Application_Order_URL>http://www.goaliegoals.com</Application_Order_URL>
+      <Application_Screenshot_URL>http://www.goaliegoals.com/assets/veggies/veggie-passing-logs.png</Application_Screenshot_URL>
+      <Application_Icon_URL>http://www.goaliegoals.com/assets/soccerball-32x32.gif</Application_Icon_URL>
+      <Application_XML_File_URL>http://repository.appvisor.com/app-d1002777184d/site-01/GoalieGoals_pad.xml</Application_XML_File_URL>
+    </Application_URLs>
+    <Download_URLs>
+      <Primary_Download_URL>http://www.goaliegoals.com</Primary_Download_URL>
+      <Secondary_Download_URL></Secondary_Download_URL>
+      <Additional_Download_URL_1></Additional_Download_URL_1>
+      <Additional_Download_URL_2></Additional_Download_URL_2>
+    </Download_URLs>
+  </Web_Info>
+  <Program_Descriptions>
+    <English>
+      <Keywords>Goal, Goals, Goal Management, Goal Setting, Goal Tracking, Cloud Based, Free, Log, track, numerical, achieve, visualize, SMART, SMARTER, SMART Criteria, Specific, Significant, stretching, simple, sustainable, Measure, Measurable, Motivational, manage</Keywords>
+      <Char_Desc_45>Simple and Effective Goal Management</Char_Desc_45>
+      <Char_Desc_80>Simple and Effective Cloud Based Goal Management Application</Char_Desc_80>
+      <Char_Desc_250>Free cloud based software used to manage, track, and monitor progress of personal goals. Goals are entered using a strict format to guarantee they are specific, measurable, actionable and time-bound.</Char_Desc_250>
+      <Char_Desc_450>GoalieGoals is a free web service designed to help people set and track SMART goals. It provides a quick status of your goals indicating if each is passing or failing for the current day. In addition, it allows you to see how far ahead or behind you are on achieving a specific goal by logging progress. These two dashboards are simple and intuitive and provide you with excellent insight into your goal management.</Char_Desc_450>
+      <Char_Desc_2000>GoalieGoals is a free web application designed to help you create, manage, and achieve SMART goals. It allows you to quickly determine if you are on track to meet your goals. Additionally, it allows you to see how far ahead or behind you are on achieving goals. This kind of instant visual feedback is critical to helping you stay motivated and be successful.
+
+GoalieGoals helps you set goals that follow the SMART(ER) principles for goal setting. 
+
+Specific 
+Measurable
+Action-based
+Result-based
+Time-bound
+Evaluate
+Reevaluate
+
+Take the goal 'Eat 2 vegetables 1 times a day starting 2013-10-27 and ending 2013-11-27' as an example. The goal is specific by defining:
+
+What action you should do ('Eat 2 Vegetables')
+How often you should do it ('1 times a day')
+How long you should do it ('for 1 month')
+
+The goals are always measurable since the expectations to achieve the goal can be quantified into a daily requirement. With this information, we can determine if each Goal has had enough progress to be 'Passing' or 'Failing' on a given day. This is shown as the status of the Goals on the Goal page and in more detail for each individual goal in the Logs page. 
+
+We can also evaluate and if necessary reassess our goals if we are falling behind due to being overly ambitious. The above serves as a good example of what it would look like if we stretched a little too far with a goal.
+
+Final Goal Target
+In order to fully achieve our end goal, we will need to eat a total of '62 Vegetables'. Seeing the total requirement helps us visualize our end goal and gives us a better feel for how attainable is our goal.</Char_Desc_2000>
+    </English>
+  </Program_Descriptions>
+  <Permissions>
+    <Distribution_Permissions>Free Cloud Based Software</Distribution_Permissions>
+    <EULA>N/A</EULA>
+  </Permissions>
+  <Affiliates>
+    <Affiliates_Regsoft_Order_Page></Affiliates_Regsoft_Order_Page>
+    <Affiliates_Regnow_Order_Page></Affiliates_Regnow_Order_Page>
+    <Affiliates_Regsoft_Vendor_ID></Affiliates_Regsoft_Vendor_ID>
+    <Affiliates_Regnow_Vendor_ID></Affiliates_Regnow_Vendor_ID>
+    <Affiliates_Regsoft_Product_ID></Affiliates_Regsoft_Product_ID>
+    <Affiliates_Regnow_Product_ID></Affiliates_Regnow_Product_ID>
+    <Affiliates_FORM></Affiliates_FORM>
+    <Affiliates_FORM_VER></Affiliates_FORM_VER>
+    <Affiliates_VERSION></Affiliates_VERSION>
+    <Affiliates_URL></Affiliates_URL>
+    <Affiliates_Information_Page></Affiliates_Information_Page>
+    <Affiliates_Avangate_Order_Page></Affiliates_Avangate_Order_Page>
+    <Affiliates_Avangate_Vendor_ID></Affiliates_Avangate_Vendor_ID>
+    <Affiliates_Avangate_Product_ID></Affiliates_Avangate_Product_ID>
+    <Affiliates_Avangate_Maximum_Commission_Rate></Affiliates_Avangate_Maximum_Commission_Rate>
+    <Affiliates_BMTMicro_Order_Page></Affiliates_BMTMicro_Order_Page>
+    <Affiliates_BMTMicro_Vendor_ID></Affiliates_BMTMicro_Vendor_ID>
+    <Affiliates_BMTMicro_Product_ID></Affiliates_BMTMicro_Product_ID>
+    <Affiliates_BMTMicro_Maximum_Commission_Rate></Affiliates_BMTMicro_Maximum_Commission_Rate>
+    <Affiliates_eSellerate_Order_Page></Affiliates_eSellerate_Order_Page>
+    <Affiliates_eSellerate_Vendor_ID></Affiliates_eSellerate_Vendor_ID>
+    <Affiliates_eSellerate_Product_ID></Affiliates_eSellerate_Product_ID>
+    <Affiliates_eSellerate_Maximum_Commission_Rate></Affiliates_eSellerate_Maximum_Commission_Rate>
+    <Affiliates_Kagi_Order_Page></Affiliates_Kagi_Order_Page>
+    <Affiliates_Kagi_Vendor_ID></Affiliates_Kagi_Vendor_ID>
+    <Affiliates_Kagi_Product_ID></Affiliates_Kagi_Product_ID>
+    <Affiliates_Kagi_Maximum_Commission_Rate></Affiliates_Kagi_Maximum_Commission_Rate>
+    <Affiliates_Order1_Order_Page></Affiliates_Order1_Order_Page>
+    <Affiliates_Order1_Vendor_ID></Affiliates_Order1_Vendor_ID>
+    <Affiliates_Order1_Product_ID></Affiliates_Order1_Product_ID>
+    <Affiliates_Order1_Maximum_Commission_Rate></Affiliates_Order1_Maximum_Commission_Rate>
+    <Affiliates_Regnet_Order_Page></Affiliates_Regnet_Order_Page>
+    <Affiliates_Regnet_Vendor_ID></Affiliates_Regnet_Vendor_ID>
+    <Affiliates_Regnet_Product_ID></Affiliates_Regnet_Product_ID>
+    <Affiliates_Regnet_Maximum_Commission_Rate></Affiliates_Regnet_Maximum_Commission_Rate>
+    <Affiliates_Regnow_Maximum_Commission_Rate></Affiliates_Regnow_Maximum_Commission_Rate>
+    <Affiliates_Regsoft_Maximum_Commission_Rate></Affiliates_Regsoft_Maximum_Commission_Rate>
+    <Affiliates_ShareIt_Order_Page></Affiliates_ShareIt_Order_Page>
+    <Affiliates_ShareIt_Vendor_ID></Affiliates_ShareIt_Vendor_ID>
+    <Affiliates_ShareIt_Product_ID></Affiliates_ShareIt_Product_ID>
+    <Affiliates_ShareIt_Maximum_Commission_Rate></Affiliates_ShareIt_Maximum_Commission_Rate>
+    <Affiliates_SWReg_Order_Page></Affiliates_SWReg_Order_Page>
+    <Affiliates_SWReg_Vendor_ID></Affiliates_SWReg_Vendor_ID>
+    <Affiliates_SWReg_Product_ID></Affiliates_SWReg_Product_ID>
+    <Affiliates_SWReg_Maximum_Commission_Rate></Affiliates_SWReg_Maximum_Commission_Rate>
+  </Affiliates>
+  <NewsFeed>
+    <NewsFeed_FORM></NewsFeed_FORM>
+    <NewsFeed_VERSION></NewsFeed_VERSION>
+    <NewsFeed_URL></NewsFeed_URL>
+    <NewsFeed_DESCRIPTION></NewsFeed_DESCRIPTION>
+    <NewsFeed_Feed_URL></NewsFeed_Feed_URL>
+    <NewsFeed_Type></NewsFeed_Type>
+    <NewsFeed_Site_URL></NewsFeed_Site_URL>
+    <NewsFeed_Author_First_Name></NewsFeed_Author_First_Name>
+    <NewsFeed_Author_Last_Name></NewsFeed_Author_Last_Name>
+    <NewsFeed_Author_Email></NewsFeed_Author_Email>
+    <NewsFeed_Language></NewsFeed_Language>
+    <NewsFeed_Title></NewsFeed_Title>
+    <NewsFeed_Description_70></NewsFeed_Description_70>
+    <NewsFeed_Description_250></NewsFeed_Description_250>
+    <NewsFeed_Purpose></NewsFeed_Purpose>
+    <NewsFeed_Site_Name></NewsFeed_Site_Name>
+  </NewsFeed>
+  <Press_Release>
+    <Press_Release></Press_Release>
+    <Headline></Headline>
+    <Summary></Summary>
+    <Press_Release_Plain></Press_Release_Plain>
+  </Press_Release>
+  <Site>
+    <Site_FORM></Site_FORM>
+    <Site_VERSION></Site_VERSION>
+    <Site_URL></Site_URL>
+    <Site_DESCRIPTION></Site_DESCRIPTION>
+    <Site_Site_Title>GoalieGoals - Simple and Effective Goal Management</Site_Site_Title>
+    <Site_Site_URL>http://www.goaliegoals.com</Site_Site_URL>
+    <Site_Keywords>Goal, Goals, Goal Management, Goal Setting, Goal Tracking, Cloud Based, Free, Log, track, numerical, achieve, visualize, SMART, SMARTER, SMART Criteria, Specific, Significant, stretching, simple, sust</Site_Keywords>
+    <Site_Description_100>Simple Effective Cloud Based Goal Management Application. Create, track, and monitor goal progress.</Site_Description_100>
+    <Site_Description_250>Free cloud based software used to manage, track, and monitor progress of personal goals. Goals are entered using a strict format to guarantee they are specific, measurable, actionable and time-bound.</Site_Description_250>
+    <Site_Description_450>GoalieGoals is a free web service designed to help people set and track SMART goals. It provides a quick status of your goals indicating if each is passing or failing for the current day. In addition, it allows you to see how far ahead or behind you are on achieving a specific goal by logging progress. These two dashboards are simple and intuitive and provide you with excellent insight into your goal management.</Site_Description_450>
+    <Site_Contact_First_Name></Site_Contact_First_Name>
+    <Site_Contact_Last_Name></Site_Contact_Last_Name>
+    <Site_Contact_Email></Site_Contact_Email>
+  </Site>
+  <Download_Link_Points_To_Non_Binary_File>TRUE</Download_Link_Points_To_Non_Binary_File>
+  <Dynamic_PAD>
+    <General>
+      <DP_Pad_Enabled>TRUE</DP_Pad_Enabled>
+      <DP_AtFormFill_Enabled>TRUE</DP_AtFormFill_Enabled>
+      <DP_Distributive_Enabled>TRUE</DP_Distributive_Enabled>
+      <DP_Script_Base_URL>http://repository.appvisor.com/</DP_Script_Base_URL>
+      <DP_Pad_Mask>GoalieGoals_pad.xml</DP_Pad_Mask>
+      <DP_Distributive_Primary_URL>http://www.goaliegoals.com</DP_Distributive_Primary_URL>
+      <DP_Distributive_Mask>www.goaliegoals.com</DP_Distributive_Mask>
+    </General>
+  </Dynamic_PAD>
+</XML_DIZ_INFO>
