@@ -6,7 +6,7 @@
   <%= label_tag(:q, "Your Email Address:") %>
 
   <% email = current_user ? current_user.email : '' %>
-  <%= text_field_tag(:email, email) %>
+  <%= text_field_tag(:from, email) %>
 
   <%= label_tag(:q, "Subject:") %>
   <%= text_field_tag(:subject, 'GoalieGoals - Contact Us') %>

@@ -1,9 +1,10 @@
 class ContactUsMailer < ActionMailer::Base
-  default from: 'goaliegoals@gg.com'
-  default to: 'proteanevolution@gmail.com'
+  default from: 'anonymous@gg.com'
+  default to: 'goaliegoals31@gmail.com'
   default subject: 'GoalieGoals - Contact Us'
 
   def contact_us(options)
+    @from = options[:from]
     @message = options[:message]
     mail(options)
   end
