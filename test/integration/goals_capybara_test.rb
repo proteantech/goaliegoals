@@ -54,7 +54,7 @@ class GoalsCapybaraTest < ActionDispatch::IntegrationTest
   def logout
     click_on 'Logout'
     assert page.has_content? 'Signed out successfully.'
-    assert page.has_content? 'Welcome to Goalie!'
+    assert page.has_content? 'Welcome to GoalieGoals!'
   end
 
   test 'details' do

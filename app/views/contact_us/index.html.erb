@@ -1,0 +1,18 @@
+<h1>Contact Us</h1>
+
+
+<%= form_tag do %>
+
+  <%= label_tag(:q, "Your Email Address:") %>
+
+  <% email = current_user ? current_user.email : '' %>
+  <%= text_field_tag(:email, email) %>
+
+  <%= label_tag(:q, "Subject:") %>
+  <%= text_field_tag(:subject, 'GoalieGoals - Contact Us') %>
+
+  <%= label_tag(:q, "Message Body:") %>
+  <%= text_area_tag(:message, nil, class: 'contact_us') %>
+  <br>
+  <%= submit_tag("Send") %>
+<% end %>

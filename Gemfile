@@ -26,6 +26,7 @@ gem "binding_of_caller", ">= 0.7.1", :group => :development, :platforms => [:mri
 gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
 
 group :test do
+  gem 'minitest', '~> 4.7'
   gem "mocha", :require => false
   gem 'capybara'
   gem "selenium-webdriver"
