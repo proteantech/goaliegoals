@@ -4,6 +4,7 @@ class LogsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
   setup do
+    sign_in users(:one)
     @log = logs(:one)
     @goal = goals(:books_2_per_month)
     @goal.logs = [@log]
