@@ -18,7 +18,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem "haml-rails", ">= 0.4"
 gem "html2haml", ">= 1.0.1", :group => :development
-gem "bootstrap-sass", ">= 2.3.0.0"
+gem "bootstrap-sass", "~> 2.3.2"
 gem "devise", ">= 2.2.3"
 gem "figaro", ">= 0.6.3"
 gem "better_errors", ">= 0.7.2", :group => :development
