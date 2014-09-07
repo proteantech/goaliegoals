@@ -21,4 +21,6 @@ Goalie::Application.routes.draw do
   devise_scope :user do
     root to: "devise/sessions#new"
   end
+
+  match 'login', to: 'login#login'
 end
