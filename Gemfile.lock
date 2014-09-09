@@ -162,6 +162,10 @@ GEM
       rubyzip (~> 1.0)
       websocket (~> 1.0.4)
     sexp_processor (4.4.1)
+    simple_token_authentication (1.5.0)
+      actionmailer (>= 3.2.6, < 5)
+      activerecord (>= 3.2.6, < 5)
+      devise (~> 3.2.0)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -212,5 +216,6 @@ DEPENDENCIES
   rails_12factor
   sass-rails (~> 3.2.3)
   selenium-webdriver
+  simple_token_authentication
   uglifier (>= 1.0.3)
   unicorn
