@@ -22,5 +22,5 @@ Goalie::Application.routes.draw do
     root to: "devise/sessions#new"
   end
 
-  match 'login', to: 'login#login'
+  post 'login', to: 'login#login'
 end
