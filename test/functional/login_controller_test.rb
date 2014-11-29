@@ -19,4 +19,15 @@ class LoginControllerTest < ActionController::TestCase
     assert_response 401
   end
 
+  test "invalid username" do
+    post :login, user_email: 'invalid@gmail.com',  user_token: 'bad_token'
+    assert_response 401
+  end
+
+  test "user with no token" do
+    user = users(:two)
+    post :login, user_email: user.email,  user_token: 'bad_token'
+    assert_response 401
+  end
+
 end
