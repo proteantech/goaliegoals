@@ -6,15 +6,13 @@ curl "http://localhost:3000/goals.json?user_email=mmspam31@gmail.com&user_token=
 
 =end
 
-class LoginController < ActionController::Base
-    acts_as_token_authentication_handler_for User, fallback_to_devise: false
+class LoginController < ApplicationController
+  before_filter :authenticate_user!
 
   def login
     logger.info "Enter login"
     if current_user
       render json: {msg: 'Login Success!'}
-    else
-      render json: {errors: [status: 401, title: 'Login Failed!']}, status: 401
     end
   end
 

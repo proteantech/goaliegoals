@@ -87,17 +87,20 @@ class GoalsControllerTest < ActionController::TestCase
     end
   end
 
-  describe 'JSON Responses' do
+  describe 'JSON API Responses' do
 
     before do
+      @request.env["HTTP_ACCEPT"] = "application/json"
+      @request.env["CONTENT_TYPE"] = "application/vnd.api+json"
       @goal = goals(:books_2_per_month)
     end
 
     it "should get index" do
-      @request.env["HTTP_ACCEPT"] = "application/json"
       get :index
       assert_response 401
-      assert_not_nil @response.body['errors']
+      json_response = ActiveSupport::JSON.decode(@response.body)
+      assert_not_nil json_response['errors']
+      assert json_response['errors'][0]['title'] == CustomFailure::UNAUTHORIZED_ERROR_TITLE
     end
 
   end
