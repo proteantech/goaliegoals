@@ -80,4 +80,25 @@ class GoalsControllerTest < ActionController::TestCase
     end
   end
 
+  describe 'HTML Authentication' do
+    it "should redirect to login if not logged in" do
+      get :index
+      assert_redirected_to new_user_session_path
+    end
+  end
+
+  describe 'JSON Responses' do
+
+    before do
+      @goal = goals(:books_2_per_month)
+    end
+
+    it "should get index" do
+      @request.env["HTTP_ACCEPT"] = "application/json"
+      get :index
+      assert_response 401
+      assert_not_nil @response.body['errors']
+    end
+
+  end
 end
