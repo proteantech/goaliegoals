@@ -29,6 +29,7 @@ gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
 
 group :test do
   gem 'minitest', '~> 4.7'
+  gem 'minitest-spec-rails'
   gem "mocha", :require => false
   gem 'capybara'
   gem "selenium-webdriver"

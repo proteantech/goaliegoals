@@ -106,6 +106,9 @@ GEM
       builder
       minitest (>= 2.12, < 5.0)
       powerbar
+    minitest-spec-rails (4.7.7)
+      minitest (~> 4.7)
+      rails (>= 3.0, < 4.1)
     mocha (1.0.0)
       metaclass (~> 0.0.1)
     multi_json (1.8.4)
@@ -210,6 +213,7 @@ DEPENDENCIES
   jquery-ui-rails
   minitest (~> 4.7)
   minitest-reporters
+  minitest-spec-rails
   mocha
   pg
   rails (= 3.2.13)
