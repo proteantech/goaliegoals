@@ -10,7 +10,7 @@ Goalie::Application.routes.draw do
   post 'contact_us', to: 'contact_us#send_mail'
 
   devise_for :users
-  #resources :users
+  devise_for :users, controllers: { sessions: "sessions" }
 
   authenticated :user do
     root :to => 'goals#index'
@@ -23,4 +23,5 @@ Goalie::Application.routes.draw do
   end
 
   post 'login', to: 'login#login'
+
 end
