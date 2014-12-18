@@ -27,5 +27,12 @@ class SessionsControllerTest < ActionController::TestCase
     assert json_response['errors'][0]['title'] == CustomFailure::UNAUTHORIZED_ERROR_TITLE
   end
 
+  test "try to login a user with no token" do
+    user = users(:two)
+    post :create, user: {email: user.email, password: 'password'}
+    assert_response :success
+    assert @response.headers['Content-Type'].start_with?('application/json')
+    assert_not_nil JSON.parse(@response.body)['authentication_token']
+  end
 
 end
