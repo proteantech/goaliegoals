@@ -12,7 +12,7 @@ class LoginController < ApplicationController
   def login
     logger.info "Enter login"
     if current_user
-      render json: {msg: 'Login Success!'}
+      render json: {authentication_token: current_user.authentication_token}
     end
   end
 
