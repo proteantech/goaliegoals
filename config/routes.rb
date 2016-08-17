@@ -23,5 +23,6 @@ Goalie::Application.routes.draw do
   end
 
   post 'login', to: 'login#login'
+  delete 'logout', to: 'login#logout'
 
 end
